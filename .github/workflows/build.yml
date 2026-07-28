@@ -1,26 +1,23 @@
 name: Build
 
+# Windows only: macOS builds locally in ~2 minutes on the maintainer's machine,
+# so paying CI minutes (and artifact storage) for it isn't worth it.
+# Not run on every push — a README tweak shouldn't burn a 20-minute Windows job.
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
   release:
     types: [published]
+
+# A newer run supersedes an in-flight one instead of both burning minutes.
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     permissions:
       contents: write
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - platform: "windows-latest"
-            args: ""
-          - platform: "macos-latest"
-            args: "--target universal-apple-darwin"
-
-    runs-on: ${{ matrix.platform }}
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -31,17 +28,14 @@ jobs:
             ~/.cargo/registry
             ~/.cargo/git
             src-tauri/target
-          key: ${{ matrix.platform }}-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: ${{ matrix.platform }}-
+          key: windows-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: windows-
 
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
-        with:
-          targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
 
       # isideload pulls in OpenSSL, which needs perl+make to build on Windows.
-      - name: Install Perl and Make (Windows)
-        if: matrix.platform == 'windows-latest'
+      - name: Install Perl and Make
         run: choco install strawberryperl make --no-progress
 
       - uses: oven-sh/setup-bun@v2
@@ -56,26 +50,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: ${{ matrix.args }}
           # The updater is stripped from this fork, so never emit updater artifacts.
           includeUpdaterJson: false
           releaseId: ${{ github.event_name == 'release' && github.event.release.id || '' }}
-          # Literal ASCII name rather than [name]: productName is Chinese, which
-          # would otherwise produce percent-encoded, hard-to-link download URLs.
           assetNamePattern: "XiguaIPAHelper-[platform]-[arch][ext]"
 
       - name: Upload Windows installers
         uses: actions/upload-artifact@v4
-        if: matrix.platform == 'windows-latest'
         with:
           name: windows
+          # Short retention: these are picked up and published within a day or
+          # two, and the account's Actions storage quota is small.
+          retention-days: 5
           path: |
             src-tauri/target/release/bundle/**/*.exe
             src-tauri/target/release/bundle/**/*.msi
-
-      - name: Upload macOS DMG
-        uses: actions/upload-artifact@v4
-        if: matrix.platform == 'macos-latest'
-        with:
-          name: macos
-          path: src-tauri/target/**/release/bundle/**/*.dmg
