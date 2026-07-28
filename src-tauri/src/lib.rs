@@ -48,7 +48,7 @@ pub fn run() {
 
             let file_appender = tracing_appender::rolling::RollingFileAppender::builder()
                 .rotation(tracing_appender::rolling::Rotation::DAILY)
-                .filename_prefix("sideload-helper")
+                .filename_prefix("xigua-ipa-helper")
                 .filename_suffix("log")
                 .max_log_files(2)
                 .build(&log_dir)

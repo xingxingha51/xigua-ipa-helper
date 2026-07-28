@@ -6123,38 +6123,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64"
 
 [[package]]
-name = "sideload-helper"
-version = "1.0.0"
-dependencies = [
- "chrono",
- "futures",
- "idevice",
- "isideload",
- "keyring",
- "once_cell",
- "plist",
- "plist-macro",
- "reqwest",
- "rootcause",
- "rustls",
- "serde",
- "serde_json",
- "strum",
- "tauri",
- "tauri-build",
- "tauri-plugin-dialog",
- "tauri-plugin-opener",
- "tauri-plugin-process",
- "tauri-plugin-store",
- "thiserror 2.0.18",
- "tokio",
- "tokio-util",
- "tracing",
- "tracing-appender",
- "tracing-subscriber",
-]
-
-[[package]]
 name = "signal-hook-registry"
 version = "1.4.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8741,6 +8709,38 @@ dependencies = [
  "rusticata-macros",
  "thiserror 2.0.18",
  "time",
+]
+
+[[package]]
+name = "xigua-ipa-helper"
+version = "1.0.0"
+dependencies = [
+ "chrono",
+ "futures",
+ "idevice",
+ "isideload",
+ "keyring",
+ "once_cell",
+ "plist",
+ "plist-macro",
+ "reqwest",
+ "rootcause",
+ "rustls",
+ "serde",
+ "serde_json",
+ "strum",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-dialog",
+ "tauri-plugin-opener",
+ "tauri-plugin-process",
+ "tauri-plugin-store",
+ "thiserror 2.0.18",
+ "tokio",
+ "tokio-util",
+ "tracing",
+ "tracing-appender",
+ "tracing-subscriber",
 ]
 
 [[package]]

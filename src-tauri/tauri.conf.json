@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "SideloadHelper",
+  "productName": "西瓜IPA安装助手",
   "version": "1.0.0",
-  "identifier": "com.sideloadstore.helper",
+  "identifier": "com.xigua.ipahelper",
   "build": {
     "beforeDevCommand": "bun run dev",
     "devUrl": "http://localhost:1420",
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "侧载助手",
+        "title": "西瓜IPA安装助手",
         "width": 760,
         "height": 640,
         "minHeight": 300,

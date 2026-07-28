@@ -17,5 +17,5 @@ fn main() {
         .install_default()
         .expect("Failed to install rustls crypto provider");
     isideload::init().expect("Failed to initialize error reporting");
-    sideload_helper_lib::run()
+    xigua_ipa_helper_lib::run()
 }

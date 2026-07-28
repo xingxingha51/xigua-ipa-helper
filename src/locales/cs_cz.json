@@ -44,7 +44,7 @@
     "must_be_logged_in": "Musíte být přihlášeni!",
     "must_select_device": "Musíte vybrat zařízení!",
     "ipa_files": "Soubory IPA",
-    "logo_alt": "logo SideloadHelper",
+    "logo_alt": "logo Xigua IPA Helper",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)"
   },
@@ -77,7 +77,7 @@
     "valid_6digit": "Zadejte platný 6místný kód.",
     "submit": "Odeslat",
     "max_certs_title": "Dosaženo maxima certifikátů",
-    "max_certs_desc": "SideloadHelper odvolá vaše stávající certifikáty a vygeneruje nový.",
+    "max_certs_desc": "Xigua IPA Helper odvolá vaše stávající certifikáty a vygeneruje nový.",
     "hide_certificate_list": "Skrýt seznam certifikátů",
     "choose_what_to_revoke": "Vyberte, co chcete odvolat",
     "continue": "Pokračovat"

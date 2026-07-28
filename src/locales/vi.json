@@ -44,7 +44,7 @@
     "must_be_logged_in": "Bạn phải đăng nhập mới có thể dùng được",
     "must_select_device": "Thiết bị của bạn đâu rồi?",
     "ipa_files": "Các tệp IPAs",
-    "logo_alt": "Logo SideloadHelper",
+    "logo_alt": "Logo Xigua IPA Helper",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)"
   },
@@ -77,7 +77,7 @@
     "valid_6digit": "Vui lòng điện một mã 6 số chính xác",
     "submit": "Hoàn thành",
     "max_certs_title": "Đã đạt sỗ lượng chứng chỉ tối đa",
-    "max_certs_desc": "SideloadHelper sẽ thu hồi chứng chỉ tồn tại của bạn để tạo một cái mới.",
+    "max_certs_desc": "Xigua IPA Helper sẽ thu hồi chứng chỉ tồn tại của bạn để tạo một cái mới.",
     "hide_certificate_list": "Ẩn danh sách chứng chị",
     "choose_what_to_revoke": "Thu hôi cái gì nào?",
     "continue": "Tiếp tục"
@@ -186,7 +186,7 @@
     "info": "Thông tin",
     "warn": "Cảnh báo",
     "error": "Lỗi",
-    "language_hint": "Bạn có thể giúp dịch SideloadHelper ở <translation>đây</translation>."
+    "language_hint": "Bạn có thể giúp dịch Xigua IPA Helper ở <translation>đây</translation>."
   },
   "dialog": {
     "confirm": "Xác nhận",
@@ -200,7 +200,7 @@
   "update": {
     "new_version_available": "Có phiên bản mới: {{version}}. Bạn có muốn cập nhật không?",
     "updating": "Đang cập nhật.",
-    "downloaded_restarting": "Đã cài đặt cập nhật, đang khởi động lại SideloadHelper..",
+    "downloaded_restarting": "Đã cài đặt cập nhật, đang khởi động lại Xigua IPA Helper..",
     "failed_download": "Lỗi tải xuống cập nhật: {{error}}"
   }
 }

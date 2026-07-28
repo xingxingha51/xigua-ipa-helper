@@ -44,7 +44,7 @@
     "must_be_logged_in": "¡Debes iniciar sesión!",
     "must_select_device": "¡Debes seleccionar un dispositivo!",
     "ipa_files": "Archivos IPA",
-    "logo_alt": "logo de SideloadHelper",
+    "logo_alt": "logo de Xigua IPA Helper",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)"
   },
@@ -77,7 +77,7 @@
     "valid_6digit": "Por favor ingresa un código válido de 6 dígitos.",
     "submit": "Enviar",
     "max_certs_title": "Se alcanzó el máximo de certificados",
-    "max_certs_desc": "SideloadHelper revocará tus certificados existentes y generará uno nuevo.",
+    "max_certs_desc": "Xigua IPA Helper revocará tus certificados existentes y generará uno nuevo.",
     "hide_certificate_list": "Ocultar lista de certificados",
     "choose_what_to_revoke": "Elige qué revocar",
     "continue": "Continuar"

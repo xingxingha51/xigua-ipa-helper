@@ -44,7 +44,7 @@
     "must_be_logged_in": "Anda harus masuk terlebih dahulu!",
     "must_select_device": "Anda harus memilih perangkat!",
     "ipa_files": "Berkas IPA",
-    "logo_alt": "logo SideloadHelper",
+    "logo_alt": "logo Xigua IPA Helper",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)"
   },
@@ -77,7 +77,7 @@
     "valid_6digit": "Harap masukkan kode 6 digit yang valid.",
     "submit": "Kirim",
     "max_certs_title": "Sertifikat maksimum tercapai",
-    "max_certs_desc": "SideloadHelper akan mencabut sertifikat Anda yang ada dan membuat yang baru.",
+    "max_certs_desc": "Xigua IPA Helper akan mencabut sertifikat Anda yang ada dan membuat yang baru.",
     "hide_certificate_list": "Sembunyikan daftar sertifikat",
     "choose_what_to_revoke": "Pilih apa yang akan dicabut",
     "continue": "Lanjutkan",
@@ -199,7 +199,7 @@
     "stored_rppairing_deleted_success": "Pairing tersimpan berhasil dihapus!",
     "failed_delete_stored_rppairing": "Gagal menghapus pairing tersimpan",
     "dont_use_keyring": "Jangan gunakan keyring",
-    "dont_use_keyring_message": "Ini membuat SideloadHelper kurang aman dengan menyimpan berkas pairing, state anisette, dan sertifikat di disk. Aktifkan ini hanya jika penyimpanan keyring default tidak berfungsi dan Anda memahami risikonya."
+    "dont_use_keyring_message": "Ini membuat Xigua IPA Helper kurang aman dengan menyimpan berkas pairing, state anisette, dan sertifikat di disk. Aktifkan ini hanya jika penyimpanan keyring default tidak berfungsi dan Anda memahami risikonya."
   },
   "dialog": {
     "confirm": "Konfirmasi",
@@ -268,7 +268,7 @@
         "Coba jalankan aplikasi dengan izin yang ditinggikan (sebagai administrator/root)."
       ],
       "filesystem": [
-        "Pastikan SideloadHelper memiliki izin untuk membaca dan menulis berkas di sistem Anda."
+        "Pastikan Xigua IPA Helper memiliki izin untuk membaca dan menulis berkas di sistem Anda."
       ],
       "not_enough_app_ids": [
         "Anda tidak memiliki cukup ID Aplikasi yang tersedia untuk memasang aplikasi ini.",

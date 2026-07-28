@@ -17,7 +17,7 @@ import { Modal } from "./components/Modal";
 import { Settings } from "./pages/Settings";
 import { Pairing } from "./pages/Pairing";
 import { getVersion } from "@tauri-apps/api/app";
-import logo from "./logo.svg";
+import logo from "./logo.png";
 import { GlassCard } from "./components/GlassCard";
 import { useTranslation } from "react-i18next";
 import { usePlatform } from "./PlatformContext";
@@ -165,7 +165,7 @@ function App() {
           <div className="title-block">
             <img src={logo} alt={t("app.logo_alt")} className="logo" />
             <div>
-              <h1 className="title">侧载助手</h1>
+              <h1 className="title">西瓜IPA安装助手</h1>
               <p className="subtitle">{t("subtitle")}</p>
             </div>
           </div>

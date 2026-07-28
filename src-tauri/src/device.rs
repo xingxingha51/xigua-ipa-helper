@@ -55,7 +55,7 @@ pub async fn list_devices() -> Result<Vec<Result<DeviceInfo, AppError>>, AppErro
         .map(|d| {
             let usbmuxd_addr = usbmuxd_addr.clone();
             async move {
-                let provider = d.to_provider(usbmuxd_addr, "sideload-helper");
+                let provider = d.to_provider(usbmuxd_addr, "xigua-ipa-helper");
                 let device_uid = d.device_id;
                 let connection_type = match d.connection_type {
                     Connection::Usb => "USB",
@@ -192,6 +192,6 @@ pub async fn get_provider_from_connection(
             AppError::DeviceComsWithMessage("Failed to get device".into(), e.to_string())
         })?;
 
-    let provider = device.to_provider(UsbmuxdAddr::from_env_var().unwrap(), "sideload-helper");
+    let provider = device.to_provider(UsbmuxdAddr::from_env_var().unwrap(), "xigua-ipa-helper");
     Ok(provider)
 }

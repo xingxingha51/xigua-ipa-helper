@@ -60,7 +60,9 @@ jobs:
           # The updater is stripped from this fork, so never emit updater artifacts.
           includeUpdaterJson: false
           releaseId: ${{ github.event_name == 'release' && github.event.release.id || '' }}
-          assetNamePattern: "[name]-[platform]-[arch][ext]"
+          # Literal ASCII name rather than [name]: productName is Chinese, which
+          # would otherwise produce percent-encoded, hard-to-link download URLs.
+          assetNamePattern: "XiguaIPAHelper-[platform]-[arch][ext]"
 
       - name: Upload Windows installers
         uses: actions/upload-artifact@v4

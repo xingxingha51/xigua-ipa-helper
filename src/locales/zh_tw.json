@@ -1,5 +1,5 @@
 {
-  "subtitle": "側載助手",
+  "subtitle": "西瓜IPA安裝助手",
   "version": "版本",
   "common": {
     "confirm": "確認",
@@ -44,7 +44,7 @@
     "must_be_logged_in": "您必須登入！",
     "must_select_device": "您必須選擇一台裝置！",
     "ipa_files": "IPA 檔案",
-    "logo_alt": "側載助手圖示",
+    "logo_alt": "西瓜IPA安裝助手圖示",
     "open_guide": "圖文教程",
     "based_on": "基於 iloader (MIT)"
   },
@@ -77,7 +77,7 @@
     "valid_6digit": "請輸入有效的 6 位數字驗證碼。",
     "submit": "提交",
     "max_certs_title": "已達到憑證數量上限",
-    "max_certs_desc": "側載助手 將撤銷您現有的憑證並產生一個新的。",
+    "max_certs_desc": "西瓜IPA安裝助手 將撤銷您現有的憑證並產生一個新的。",
     "hide_certificate_list": "隱藏憑證列表",
     "choose_what_to_revoke": "選擇要撤銷的內容",
     "continue": "繼續"

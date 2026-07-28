@@ -1,4 +1,4 @@
-# 侧载助手 (SideloadHelper)
+# 西瓜IPA安装助手
 
 一个精简版的 iOS 侧载工具,专门用来把 **SideStore** 装进 iPhone / iPad。
 

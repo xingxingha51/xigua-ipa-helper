@@ -44,7 +44,7 @@
     "must_be_logged_in": "Du måste logga in!",
     "must_select_device": "Du måste välja en enhet!",
     "ipa_files": "IPA Filer",
-    "logo_alt": "SideloadHelper logo",
+    "logo_alt": "Xigua IPA Helper logo",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)"
   },
@@ -77,7 +77,7 @@
     "valid_6digit": "Skriv en giltig sex-siffrig kod.",
     "submit": "Skicka in",
     "max_certs_title": "Maximal certifikat uppnått",
-    "max_certs_desc": "SideloadHelper kommer att upphäva din exsisterande certifikat och generera en ny.",
+    "max_certs_desc": "Xigua IPA Helper kommer att upphäva din exsisterande certifikat och generera en ny.",
     "hide_certificate_list": "Göm certifikat listan",
     "choose_what_to_revoke": "Välj vad du vill upphäva (revoke)",
     "continue": "Fortsätt",

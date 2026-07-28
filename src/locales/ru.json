@@ -44,7 +44,7 @@
     "must_be_logged_in": "Необходимо выполнить вход!",
     "must_select_device": "Выберите устройство!",
     "ipa_files": "Файлы IPA",
-    "logo_alt": "Логотип SideloadHelper",
+    "logo_alt": "Логотип Xigua IPA Helper",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)"
   },
@@ -77,7 +77,7 @@
     "valid_6digit": "Пожалуйста, введите корректный 6-значный код.",
     "submit": "Подтвердить",
     "max_certs_title": "Достигнут лимит сертификатов",
-    "max_certs_desc": "SideloadHelper отзовёт Ваши текущие сертификаты и создаст новый.",
+    "max_certs_desc": "Xigua IPA Helper отзовёт Ваши текущие сертификаты и создаст новый.",
     "hide_certificate_list": "Скрыть список сертификатов",
     "choose_what_to_revoke": "Выберите сертификат для  отзыва",
     "continue": "Продолжить",
@@ -268,7 +268,7 @@
         "Попробуйте запустить приложение с повышенными привилегиями (от имени администратора или root)."
       ],
       "filesystem": [
-        "Убедитесь, что у SideloadHelper есть права на чтение и запись файлов в системе."
+        "Убедитесь, что у Xigua IPA Helper есть права на чтение и запись файлов в системе."
       ],
       "not_enough_app_ids": [
         "У вас недостаточно свободных App ID для установки этого приложения.",
