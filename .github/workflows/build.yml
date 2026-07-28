@@ -1,0 +1,79 @@
+name: Build
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: "windows-latest"
+            args: ""
+          - platform: "macos-latest"
+            args: "--target universal-apple-darwin"
+
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            src-tauri/target
+          key: ${{ matrix.platform }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: ${{ matrix.platform }}-
+
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
+
+      # isideload pulls in OpenSSL, which needs perl+make to build on Windows.
+      - name: Install Perl and Make (Windows)
+        if: matrix.platform == 'windows-latest'
+        run: choco install strawberryperl make --no-progress
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install frontend dependencies
+        run: bun install
+
+      - name: Build
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: ${{ matrix.args }}
+          # The updater is stripped from this fork, so never emit updater artifacts.
+          includeUpdaterJson: false
+          releaseId: ${{ github.event_name == 'release' && github.event.release.id || '' }}
+          assetNamePattern: "[name]-[platform]-[arch][ext]"
+
+      - name: Upload Windows installers
+        uses: actions/upload-artifact@v4
+        if: matrix.platform == 'windows-latest'
+        with:
+          name: windows
+          path: |
+            src-tauri/target/release/bundle/**/*.exe
+            src-tauri/target/release/bundle/**/*.msi
+
+      - name: Upload macOS DMG
+        uses: actions/upload-artifact@v4
+        if: matrix.platform == 'macos-latest'
+        with:
+          name: macos
+          path: src-tauri/target/**/release/bundle/**/*.dmg
