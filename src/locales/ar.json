@@ -199,7 +199,8 @@
     "stored_rppairing_deleted_success": "!تم حذف ملف الإقتران المحفوظ",
     "failed_delete_stored_rppairing": "فشل حذف ملف الإقتران المحفوظ",
     "dont_use_keyring": "keyring لا تستعمل تشفير حلقة المفاتيح",
-    "dont_use_keyring_message": "لا يعمل وأنت على دراية بالمخاطر keyring أقل أمانً عبر تخزينه لملفات الإقتران، حالة سيرفير أنيسيت وشهاداتك على القرص المحلي لجهازك الحالي. قم بتفعيل هذا الإعداد فقط في حال أن تشفير حلقة المفاتيح Xigua IPA Helper هذا الإجراء يجعل"
+    "dont_use_keyring_message": "لا يعمل وأنت على دراية بالمخاطر keyring أقل أمانً عبر تخزينه لملفات الإقتران، حالة سيرفير أنيسيت وشهاداتك على القرص المحلي لجهازك الحالي. قم بتفعيل هذا الإعداد فقط في حال أن تشفير حلقة المفاتيح Xigua IPA Helper هذا الإجراء يجعل",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "تأكيد",

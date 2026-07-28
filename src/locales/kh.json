@@ -199,7 +199,8 @@
     "stored_rppairing_deleted_success": "ការលុប pairing បានជោគជ័យ!",
     "failed_delete_stored_rppairing": "ការលុប pairing បរាជ័យ",
     "dont_use_keyring": "កុំប្រើ keyring",
-    "dont_use_keyring_message": "វាធ្វើឱ្យ Xigua IPA Helper មិនសុវត្ថិភាព ដោយរក្សាទុកទិន្នន័យលើ disk។ ប្រើតែបើចាំបាច់។"
+    "dont_use_keyring_message": "វាធ្វើឱ្យ Xigua IPA Helper មិនសុវត្ថិភាព ដោយរក្សាទុកទិន្នន័យលើ disk។ ប្រើតែបើចាំបាច់។",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "បញ្ជាក់",

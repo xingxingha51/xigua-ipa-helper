@@ -186,7 +186,8 @@
     "info": "Thông tin",
     "warn": "Cảnh báo",
     "error": "Lỗi",
-    "language_hint": "Bạn có thể giúp dịch Xigua IPA Helper ở <translation>đây</translation>."
+    "language_hint": "Bạn có thể giúp dịch Xigua IPA Helper ở <translation>đây</translation>.",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "Xác nhận",

@@ -121,6 +121,7 @@ export const Settings = ({
           customToggleLabel={t("settings.use_custom_anisette")}
           presetToggleLabel={t("settings.back_preset_servers")}
         />
+        <p className="settings-hint">{t("settings.anisette_plain_hint")}</p>
         <div>
           <Dropdown
             label={t("app.language")}

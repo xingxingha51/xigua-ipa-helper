@@ -186,7 +186,8 @@
     "info": "Informace",
     "warn": "Varování",
     "error": "Chyba",
-    "language_hint": "S překlady můžete pomoci <translation>zde</translation>."
+    "language_hint": "S překlady můžete pomoci <translation>zde</translation>.",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "Potvrdit",

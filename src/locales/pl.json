@@ -200,7 +200,8 @@
     "stored_rppairing_deleted_success": "Zapisane parowanie zostało pomyślnie usunięte!",
     "failed_delete_stored_rppairing": "Nie udało się usunąć zapisanego parowania",
     "dont_use_keyring": "Nie używaj keyringu",
-    "dont_use_keyring_message": "To zmniejsza bezpieczeństwo Xigua IPA Helpera, ponieważ pliki parowania, stan anisette i certyfikaty będą zapisywane na dysku. Włącz to tylko wtedy, gdy domyślne przechowywanie w keyringu nie działa i rozumiesz ryzyko."
+    "dont_use_keyring_message": "To zmniejsza bezpieczeństwo Xigua IPA Helpera, ponieważ pliki parowania, stan anisette i certyfikaty będą zapisywane na dysku. Włącz to tylko wtedy, gdy domyślne przechowywanie w keyringu nie działa i rozumiesz ryzyko.",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "Potwierdź",

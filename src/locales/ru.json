@@ -199,7 +199,8 @@
     "stored_rppairing_deleted_success": "Файл сопряжения успешно удален!",
     "failed_delete_stored_rppairing": "Не удалось удалить файл сопряжения",
     "dont_use_keyring": "Хранение без шифрования",
-    "dont_use_keyring_message": "Это снижает безопасность, так как файлы сопряжения, данные Anisette и сертификаты будут храниться на диске в открытом виде. Включайте эту опцию только если хранилище по умолчанию не работает и вы осознаёте риски."
+    "dont_use_keyring_message": "Это снижает безопасность, так как файлы сопряжения, данные Anisette и сертификаты будут храниться на диске в открытом виде. Включайте эту опцию только если хранилище по умолчанию не работает и вы осознаёте риски.",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "Подтвердить",

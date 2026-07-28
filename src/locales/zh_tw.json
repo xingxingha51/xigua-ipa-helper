@@ -186,7 +186,8 @@
     "info": "資訊",
     "warn": "警告",
     "error": "錯誤",
-    "language_hint": "您可以<translation>在此</translation>協助改善翻譯。"
+    "language_hint": "您可以<translation>在此</translation>協助改善翻譯。",
+    "anisette_plain_hint": "登入 Apple ID 時需要用它產生驗證資料。一般不用改;如果登入一直失敗,可以換一個再試。"
   },
   "dialog": {
     "confirm": "確認",

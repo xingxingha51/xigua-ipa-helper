@@ -199,7 +199,8 @@
     "stored_rppairing_deleted_success": "Jumelage enregistré supprimé avec succès !",
     "failed_delete_stored_rppairing": "Échec de la suppression du jumelage enregistré",
     "dont_use_keyring": "Ne pas utiliser le trousseau",
-    "dont_use_keyring_message": "Cela rend Xigua IPA Helper moins sécurisé en stockant les fichiers de jumelage, l'état d'Anisette et les certificats sur le disque. N'activez ceci que si le stockage par défaut via le trousseau ne fonctionne pas et que vous comprenez les risques encourus."
+    "dont_use_keyring_message": "Cela rend Xigua IPA Helper moins sécurisé en stockant les fichiers de jumelage, l'état d'Anisette et les certificats sur le disque. N'activez ceci que si le stockage par défaut via le trousseau ne fonctionne pas et que vous comprenez les risques encourus.",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "Confirmer",

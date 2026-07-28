@@ -188,7 +188,8 @@
     "error": "错误",
     "language_hint": "您可以<translation>点击这里</translation>帮助我们改进翻译。",
     "dont_use_keyring": "不使用钥匙串",
-    "dont_use_keyring_message": "勾选此项会让 西瓜IPA安装助手 将配对文件、anisette 状态和相关证书直接储存在磁盘内，从而使系统更不安全。只有当钥匙串无法正常储存且您充分了解此项的风险时可考虑勾选此项。"
+    "dont_use_keyring_message": "勾选此项会让 西瓜IPA安装助手 将配对文件、anisette 状态和相关证书直接储存在磁盘内，从而使系统更不安全。只有当钥匙串无法正常储存且您充分了解此项的风险时可考虑勾选此项。",
+    "anisette_plain_hint": "登录 Apple ID 时需要用它来生成验证数据。一般不用改;如果登录一直失败,可以换一个再试。"
   },
   "dialog": {
     "confirm": "确认",

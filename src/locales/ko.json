@@ -199,7 +199,8 @@
     "stored_rppairing_deleted_success": "성공적으로 저장된 페어링을 삭제했어요!",
     "failed_delete_stored_rppairing": "저장된 페어링을 삭제 실패",
     "dont_use_keyring": "키링 사용하지 않기",
-    "dont_use_keyring_message": "이로 인해 페어링 파일, Anisette 상태 및 인증서가 디스크에 저장되어 Xigua IPA Helper의 보안이 저하됩니다. 기본 키링 저장 기능이 작동하지 않고 관련 위험을 충분히 이해한 경우에만 이 기능을 활성화하세요."
+    "dont_use_keyring_message": "이로 인해 페어링 파일, Anisette 상태 및 인증서가 디스크에 저장되어 Xigua IPA Helper의 보안이 저하됩니다. 기본 키링 저장 기능이 작동하지 않고 관련 위험을 충분히 이해한 경우에만 이 기능을 활성화하세요.",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "확인",

@@ -186,7 +186,8 @@
     "info": "Información",
     "warn": "Advertencia",
     "error": "Error",
-    "language_hint": "Puedes ayudar con las traducciones <translation>aquí</translation>."
+    "language_hint": "Puedes ayudar con las traducciones <translation>aquí</translation>.",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "Confirmar",

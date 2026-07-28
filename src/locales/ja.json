@@ -199,7 +199,8 @@
     "stored_rppairing_deleted_success": "保存済みのペアリングファイルが正常に削除されました！",
     "failed_delete_stored_rppairing": "保存済みのペアリングファイルの削除に失敗しました",
     "dont_use_keyring": "キーチェーンを使わない",
-    "dont_use_keyring_message": "この設定を有効にするとペアリングファイル、Anisetteの状態、証明書をディスク上に保存するようになるため、Xigua IPA Helperの安全性が低下します。デフォルトのキーチェーン保存が機能せず、リスクを理解している場合にのみ有効にしてください。"
+    "dont_use_keyring_message": "この設定を有効にするとペアリングファイル、Anisetteの状態、証明書をディスク上に保存するようになるため、Xigua IPA Helperの安全性が低下します。デフォルトのキーチェーン保存が機能せず、リスクを理解している場合にのみ有効にしてください。",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "確定",

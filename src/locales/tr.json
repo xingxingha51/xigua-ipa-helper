@@ -199,7 +199,8 @@
     "stored_rppairing_deleted_success": "Kayıtlı eşleştirme başarıyla silindi!",
     "failed_delete_stored_rppairing": "Kayıtlı eşleştirme silinemedi",
     "dont_use_keyring": "Anahtar Zinciri'ni kullanma",
-    "dont_use_keyring_message": "Bu seçenek eşleştirme dosyalarını, anisette verilerini ve sertifikaları doğrudan diskte saklayarak Xigua IPA Helper'ı daha az güvenli hâle getirir. Bunu yalnızca varsayılan anahtar zinciri depolaması çalışmıyorsa ve risklerin farkındaysanız etkinleştirin."
+    "dont_use_keyring_message": "Bu seçenek eşleştirme dosyalarını, anisette verilerini ve sertifikaları doğrudan diskte saklayarak Xigua IPA Helper'ı daha az güvenli hâle getirir. Bunu yalnızca varsayılan anahtar zinciri depolaması çalışmıyorsa ve risklerin farkındaysanız etkinleştirin.",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "Onayla",

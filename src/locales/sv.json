@@ -189,7 +189,8 @@
     "info": "Info",
     "warn": "Warning",
     "error": "Fel",
-    "language_hint": "Du kan hjälpa med översättningar <translation>här</translation>."
+    "language_hint": "Du kan hjälpa med översättningar <translation>här</translation>.",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "Bekräfta",

@@ -193,7 +193,8 @@
     "stored_rppairing_deleted_success": "File pairing memorizzati eliminati correttamente!",
     "failed_delete_stored_rppairing": "Errore durante l'eliminazione dei file di pairing memorizzati.",
     "dont_use_keyring": "Non usare Keyring",
-    "dont_use_keyring_message": "Questo rende Xigua IPA Helper meno sicuro per memorizzare i pairing file, stato Anisette, e certificati sul disco. Abilita l'opzione solo se il Keyring di default non funziona e comprendi i rischi."
+    "dont_use_keyring_message": "Questo rende Xigua IPA Helper meno sicuro per memorizzare i pairing file, stato Anisette, e certificati sul disco. Abilita l'opzione solo se il Keyring di default non funziona e comprendi i rischi.",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "Conferma",

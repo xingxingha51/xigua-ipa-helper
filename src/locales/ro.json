@@ -199,7 +199,8 @@
     "stored_rppairing_deleted_success": "Asocierea salvată a fost ștearsă cu succes!",
     "failed_delete_stored_rppairing": "Ștergerea asocierii salvate a eșuat",
     "dont_use_keyring": "Nu folosi keyring",
-    "dont_use_keyring_message": "Aceasta face Xigua IPA Helper mai puțin sigur prin stocarea fișierelor de asociere, a stării anisette și a certificatelor pe disc. Activează această opțiune doar dacă stocarea implicită în keyring nu funcționează și înțelegi riscurile."
+    "dont_use_keyring_message": "Aceasta face Xigua IPA Helper mai puțin sigur prin stocarea fișierelor de asociere, a stării anisette și a certificatelor pe disc. Activează această opțiune doar dacă stocarea implicită în keyring nu funcționează și înțelegi riscurile.",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "Confirmă",

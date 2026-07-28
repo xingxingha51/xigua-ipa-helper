@@ -199,7 +199,8 @@
     "stored_rppairing_deleted_success": "Pairing tersimpan berhasil dihapus!",
     "failed_delete_stored_rppairing": "Gagal menghapus pairing tersimpan",
     "dont_use_keyring": "Jangan gunakan keyring",
-    "dont_use_keyring_message": "Ini membuat Xigua IPA Helper kurang aman dengan menyimpan berkas pairing, state anisette, dan sertifikat di disk. Aktifkan ini hanya jika penyimpanan keyring default tidak berfungsi dan Anda memahami risikonya."
+    "dont_use_keyring_message": "Ini membuat Xigua IPA Helper kurang aman dengan menyimpan berkas pairing, state anisette, dan sertifikat di disk. Aktifkan ini hanya jika penyimpanan keyring default tidak berfungsi dan Anda memahami risikonya.",
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
   },
   "dialog": {
     "confirm": "Konfirmasi",
