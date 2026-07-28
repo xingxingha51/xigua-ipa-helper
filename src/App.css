@@ -102,6 +102,8 @@ body {
 .logo {
   width: 3.2rem;
   height: 3.2rem;
+  /* Source art is a full square; round it here to match the app icon. */
+  border-radius: 22.4%;
   -webkit-user-drag: none;
   user-select: none;
   pointer-events: none;
