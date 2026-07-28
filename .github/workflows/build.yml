@@ -1,8 +1,7 @@
 name: Build
 
-# Windows only: macOS builds locally in ~2 minutes on the maintainer's machine,
-# so paying CI minutes for it isn't worth it.
-# Not run on every push — a README tweak shouldn't burn a 20-minute Windows job.
+# Runs on demand rather than on every push — a README tweak shouldn't kick off
+# a 20-minute Windows job.
 on:
   workflow_dispatch:
     inputs:
@@ -22,7 +21,16 @@ jobs:
   build:
     permissions:
       contents: write
-    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows-latest
+            args: ""
+          # Universal so one download covers both Apple Silicon and Intel.
+          - platform: macos-latest
+            args: "--target universal-apple-darwin"
+    runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4
 
@@ -33,14 +41,17 @@ jobs:
             ~/.cargo/registry
             ~/.cargo/git
             src-tauri/target
-          key: windows-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: windows-
+          key: ${{ matrix.platform }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: ${{ matrix.platform }}-
 
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
 
       # isideload pulls in OpenSSL, which needs perl+make to build on Windows.
       - name: Install Perl and Make
+        if: matrix.platform == 'windows-latest'
         run: choco install strawberryperl make --no-progress
 
       - uses: oven-sh/setup-bun@v2
@@ -61,9 +72,10 @@ jobs:
         with:
           tagName: ${{ github.event_name == 'release' && github.event.release.tag_name || inputs.tag }}
           releaseName: 西瓜IPA安装助手 ${{ github.event_name == 'release' && github.event.release.tag_name || inputs.tag }}
-          releaseBody: "Windows 安装包见下方 Assets。"
+          releaseBody: "Windows 与 macOS 安装包见下方 Assets。"
           releaseDraft: false
           prerelease: false
+          args: ${{ matrix.args }}
           # The updater is stripped from this fork, so never emit updater artifacts.
           includeUpdaterJson: false
           assetNamePattern: "XiguaIPAHelper-[platform]-[arch][ext]"
