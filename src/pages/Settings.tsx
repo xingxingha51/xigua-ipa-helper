@@ -74,7 +74,8 @@ export const Settings = ({
     return log.level >= Number(logLevelFilter);
   });
 
-  const [lang, setLang] = useStore<string>("lang", "en");
+  // Default to Simplified Chinese; a user's own pick still persists over this.
+  const [lang, setLang] = useStore<string>("lang", "zh_cn");
 
   useEffect(() => {
     i18n.changeLanguage(lang);
