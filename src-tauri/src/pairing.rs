@@ -36,7 +36,17 @@ struct PairingStorageEntry {
 
 static PAIRING_STORAGE: OnceLock<Mutex<PairingStorageEntry>> = OnceLock::new();
 
+/// Bundle identifier of the store build this helper installs. Detection keys
+/// off this rather than the display name, which is localized and has already
+/// changed once. Installed ids carry a team-id suffix, so compare by prefix.
+pub const XIGUA_STORE_BUNDLE_ID: &str = "com.xiguastore.XiguaStore";
+
+/// Our store's display name. Being a SideStore fork, its container layout is
+/// the same, so the pairing file goes to the same relative path.
+pub const XIGUA_STORE_NAME: &str = "西瓜商店";
+
 const PAIRING_APPS: &[(&str, &str)] = &[
+    (XIGUA_STORE_NAME, "ALTPairingFile.mobiledevicepairing"),
     ("SideStore", "ALTPairingFile.mobiledevicepairing"),
     (
         "LiveContainer",
@@ -475,7 +485,11 @@ pub async fn installed_pairing_apps(
             .and_then(|x| x.get("CFBundleDisplayName").and_then(|x| x.as_string()))
             .ok_or(AppError::Misc("Failed to parse installed apps".to_string()))?;
 
-        if PAIRING_APPS.iter().any(|(name, _)| name == &n) {
+        // Our store is keyed by bundle id for the same reason as above: its
+        // display name is localized and can't be relied on.
+        if bundle_id.starts_with(XIGUA_STORE_BUNDLE_ID) {
+            installed.insert(XIGUA_STORE_NAME.to_string(), bundle_id);
+        } else if PAIRING_APPS.iter().any(|(name, _)| name == &n) {
             if bundle_id.contains("com.stik.stikdebug") {
                 installed.insert(format!("{} (Sideloaded)", n), bundle_id);
             } else {
@@ -525,13 +539,18 @@ pub async fn get_sidestore_info(
             .and_then(|x| x.get("CFBundleDisplayName").and_then(|x| x.as_string()))
             .ok_or(AppError::Misc("Failed to parse installed apps".to_string()))?;
 
-        if n == "SideStore" || (live_container && n == "LiveContainer") {
+        // Match our store by bundle id: its display name is localized, so a
+        // name comparison breaks the moment the UI language changes. Upstream
+        // SideStore is still accepted so an existing install keeps working.
+        let is_our_store = bundle_id.starts_with(XIGUA_STORE_BUNDLE_ID);
+        if is_our_store || n == "SideStore" || (live_container && n == "LiveContainer") {
+            let lookup_name = if is_our_store { XIGUA_STORE_NAME } else { n };
             return Ok(Some(PairingAppInfo {
-                name: n.to_string(),
+                name: lookup_name.to_string(),
                 bundle_id: bundle_id.to_string(),
                 path: PAIRING_APPS
                     .iter()
-                    .find(|(name, _)| name == &n)
+                    .find(|(name, _)| name == &lookup_name)
                     .map(|(_, path)| path.to_string())
                     .unwrap_or_default(),
             }));

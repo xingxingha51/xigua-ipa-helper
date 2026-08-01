@@ -166,8 +166,8 @@ pub async fn install_sidestore_operation(
         return op.fail(
             "pairing",
             AppError::HouseArrest(
-                "SideStore's not found".into(),
-                "The device did not report SideStore's bundle ID as installed".into(),
+                "找不到已安装的西瓜商店".into(),
+                "设备没有报告西瓜商店的 Bundle ID，安装可能未完成。请在手机上确认它已出现在桌面后重试。".into(),
             ),
         );
     }
