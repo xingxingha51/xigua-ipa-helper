@@ -11,7 +11,7 @@ interface ExportAccountProps {
 }
 
 /**
- * Exports the signed-in account so 西瓜商店 can import it and skip its own
+ * Exports the signed-in account so 西瓜IPA助手 can import it and skip its own
  * sign-in.
  *
  * The password is only asked for when it isn't already in the keychain —

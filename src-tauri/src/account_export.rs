@@ -1,5 +1,5 @@
 //! Exports the signed-in Apple account as an `Account.sideconf` file that
-//! 西瓜商店 (our SideStore fork) can import, so the user only signs in once.
+//! 西瓜IPA助手 (our SideStore fork) can import, so the user only signs in once.
 //!
 //! The store app reads `Documents/Account.sideconf` on launch, imports it into
 //! the keychain, and deletes it. This module produces that file; for now the
@@ -241,7 +241,7 @@ pub async fn export_account_file(
     let save_path = app
         .dialog()
         .file()
-        .add_filter("西瓜商店账号文件", &["sideconf"])
+        .add_filter("西瓜IPA助手账号文件", &["sideconf"])
         .set_file_name("Account.sideconf")
         .set_title("导出账号文件")
         .blocking_save_file();

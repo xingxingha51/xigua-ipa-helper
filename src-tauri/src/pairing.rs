@@ -43,7 +43,7 @@ pub const XIGUA_STORE_BUNDLE_ID: &str = "com.xiguastore.XiguaStore";
 
 /// Our store's display name. Being a SideStore fork, its container layout is
 /// the same, so the pairing file goes to the same relative path.
-pub const XIGUA_STORE_NAME: &str = "西瓜商店";
+pub const XIGUA_STORE_NAME: &str = "西瓜IPA助手";
 
 const PAIRING_APPS: &[(&str, &str)] = &[
     (XIGUA_STORE_NAME, "ALTPairingFile.mobiledevicepairing"),

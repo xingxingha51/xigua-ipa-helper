@@ -1,5 +1,5 @@
 {
-  "subtitle": "一键把西瓜商店装进 iPhone",
+  "subtitle": "一键把西瓜IPA助手装进 iPhone",
   "version": "版本",
   "common": {
     "confirm": "确认",
@@ -35,7 +35,7 @@
     "select_device": "选择设备",
     "installers": "安装器",
     "choose_build": "选择构建版本",
-    "sidestore_stable": "安装西瓜商店",
+    "sidestore_stable": "安装西瓜IPA助手",
     "sidestore_nightly": "SideStore（每夜构建版）",
     "livecontainer_sidestore_stable": "LiveContainer + SideStore（稳定版）",
     "livecontainer_sidestore_nightly": "LiveContainer + SideStore（每夜构建版）",
@@ -106,10 +106,10 @@
     "copy_error_clipboard": "复制错误到剪贴板"
   },
   "operations": {
-    "install_sidestore_title": "正在安装西瓜商店",
-    "install_sidestore_success_title": "西瓜商店安装成功！",
-    "install_sidestore_success_message": "打开西瓜商店并刷新一次即可完成设置。",
-    "install_sidestore_step_download": "下载西瓜商店",
+    "install_sidestore_title": "正在安装西瓜IPA助手",
+    "install_sidestore_success_title": "西瓜IPA助手安装成功！",
+    "install_sidestore_success_message": "打开西瓜IPA助手并刷新一次即可完成设置。",
+    "install_sidestore_step_download": "下载西瓜IPA助手",
     "install_sidestore_step_install": "签名并安装",
     "install_sidestore_step_pairing": "放置配对文件",
     "install_livecontainer_title": "正在安装 LiveContainer+SideStore",
@@ -277,7 +277,7 @@
       "not_enough_app_ids": [
         "可用的 App ID 不够，装不了这个应用。",
         "App ID 要 7 天后才会释放（无法提前删除），到时再试。",
-        "从西瓜商店里装应用有时更省 App ID，可以改从那里装。"
+        "从西瓜IPA助手里装应用有时更省 App ID，可以改从那里装。"
       ],
       "max_apps": [
         "免费 Apple ID 同时最多只能装 3 个侧载应用。",
@@ -294,7 +294,7 @@
   },
   "export_account": {
     "title": "导出账号到手机",
-    "desc": "把当前登录的账号导出成文件，导入西瓜商店后手机端就不用再登录一次。",
+    "desc": "把当前登录的账号导出成文件，导入西瓜IPA助手后手机端就不用再登录一次。",
     "warning_title": "⚠️ 这个文件等同于你的密码",
     "warning_body": "文件里含有明文的 Apple ID 密码。导入手机后请立刻删除电脑上的这份文件，也不要发给任何人。",
     "password": "Apple ID 密码",
@@ -303,8 +303,8 @@
     "working": "正在登录并生成…",
     "saved": "已保存到 {{path}}",
     "step1": "把导出的 Account.sideconf 传到手机（隔空投送、微信文件传输都行）",
-    "step2": "在手机上把它移动到「文件 → 我的 iPhone → 西瓜商店」文件夹里",
-    "step3": "重新打开西瓜商店，会自动导入并删除该文件",
+    "step2": "在手机上把它移动到「文件 → 我的 iPhone → 西瓜IPA助手」文件夹里",
+    "step3": "重新打开西瓜IPA助手，会自动导入并删除该文件",
     "why_password": "登录时没有勾选「保存凭据」，所以需要再输一次。勾选后以后就不用了。",
     "failed": "导出账号失败"
   }

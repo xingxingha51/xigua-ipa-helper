@@ -96,7 +96,7 @@ pub async fn install_sidestore_operation(
     // TODO: Cache & check version to avoid re-downloading
     //
     // Upstream branched here on nightly/live_container to install stock SideStore
-    // or the LiveContainer+SideStore bundle. This build only ever installs 西瓜商店 —
+    // or the LiveContainer+SideStore bundle. This build only ever installs 西瓜IPA助手 —
     // the UI hard-codes both flags to false, and installing stock SideStore would
     // hand the user an English app with no bundled source and none of the trimming,
     // i.e. none of the reasons this fork exists.
@@ -149,8 +149,8 @@ pub async fn install_sidestore_operation(
         return op.fail(
             "pairing",
             AppError::HouseArrest(
-                "找不到已安装的西瓜商店".into(),
-                "设备没有报告西瓜商店的 Bundle ID，安装可能未完成。请在手机上确认它已出现在桌面后重试。".into(),
+                "找不到已安装的西瓜IPA助手".into(),
+                "设备没有报告西瓜IPA助手的 Bundle ID，安装可能未完成。请在手机上确认它已出现在桌面后重试。".into(),
             ),
         );
     }

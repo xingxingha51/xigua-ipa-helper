@@ -1,5 +1,5 @@
 {
-  "subtitle": "一鍵把西瓜商店裝入 iPhone",
+  "subtitle": "一鍵把西瓜IPA助手裝入 iPhone",
   "version": "版本",
   "common": {
     "confirm": "確定",
@@ -35,7 +35,7 @@
     "select_device": "揀裝置",
     "installers": "安裝程式",
     "choose_build": "揀版本",
-    "sidestore_stable": "安裝西瓜商店",
+    "sidestore_stable": "安裝西瓜IPA助手",
     "sidestore_nightly": "SideStore（夜晚版）",
     "livecontainer_sidestore_stable": "LiveContainer + SideStore（穩定版）",
     "livecontainer_sidestore_nightly": "LiveContainer + SideStore（夜晚版）",
@@ -101,10 +101,10 @@
     "copy_error_clipboard": "複製錯誤到剪貼簿"
   },
   "operations": {
-    "install_sidestore_title": "正在安裝西瓜商店",
-    "install_sidestore_success_title": "西瓜商店安裝成功！",
-    "install_sidestore_success_message": "開啟西瓜商店並重新整理一次即可完成設定。",
-    "install_sidestore_step_download": "下載西瓜商店",
+    "install_sidestore_title": "正在安裝西瓜IPA助手",
+    "install_sidestore_success_title": "西瓜IPA助手安裝成功！",
+    "install_sidestore_success_message": "開啟西瓜IPA助手並重新整理一次即可完成設定。",
+    "install_sidestore_step_download": "下載西瓜IPA助手",
     "install_sidestore_step_install": "簽名並安裝",
     "install_sidestore_step_pairing": "放置配對檔案",
     "install_livecontainer_title": "安裝緊 LiveContainer + SideStore",
@@ -207,7 +207,7 @@
   },
   "export_account": {
     "title": "匯出帳號到手機",
-    "desc": "把目前登入的帳號匯出成檔案，匯入西瓜商店後手機端就不用再登入一次。",
+    "desc": "把目前登入的帳號匯出成檔案，匯入西瓜IPA助手後手機端就不用再登入一次。",
     "warning_title": "⚠️ 這個檔案等同於你的密碼",
     "warning_body": "檔案內含明文的 Apple ID 密碼。匯入手機後請立刻刪除電腦上的這份檔案，也不要傳給任何人。",
     "password": "Apple ID 密碼",
@@ -216,8 +216,8 @@
     "working": "正在登入並產生…",
     "saved": "已儲存至 {{path}}",
     "step1": "把导出的 Account.sideconf 传到手机（隔空投送、微信文件传输都行）",
-    "step2": "在手机上把它移动到「文件 → 我的 iPhone → 西瓜商店」文件夹里",
-    "step3": "重新打开西瓜商店，会自动导入并删除该文件",
+    "step2": "在手机上把它移动到「文件 → 我的 iPhone → 西瓜IPA助手」文件夹里",
+    "step3": "重新打开西瓜IPA助手，会自动导入并删除该文件",
     "why_password": "登入時沒有勾選「儲存憑據」，所以需要再輸一次。勾選後以後就不用了。",
     "failed": "匯出帳號失敗"
   }
