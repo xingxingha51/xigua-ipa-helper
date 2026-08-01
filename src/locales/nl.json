@@ -105,12 +105,12 @@
     "copy_error_clipboard": "Kopieer fout naar klembord"
   },
   "operations": {
-    "install_sidestore_title": "SideStore installeren",
-    "install_sidestore_success_title": "SideStore geïnstalleerd!",
-    "install_sidestore_success_message": "Open SideStore en herlaad SideStore om de installatie te voltooien!",
-    "install_sidestore_step_download": "Download SideStore",
-    "install_sidestore_step_install": "Onderteken & Installeer SideStore",
-    "install_sidestore_step_pairing": "Plaats koppelingsbestand",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "LiveContainer+SideStore installeren",
     "install_livecontainer_success_title": "LiveContainer+SideStore geïnstalleerd!",
     "install_livecontainer_success_message": "Om de installatie te voltooien, open LiveContainer, kies instellingen, en klik op \"Import Certificate From SideStore.\" Kies vervolgens apps, klik op het SideStore icoon, en ververs LiveContainer.",

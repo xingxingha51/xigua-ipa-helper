@@ -105,12 +105,12 @@
     "copy_error_clipboard": "Xətanı buferə kopyala"
   },
   "operations": {
-    "install_sidestore_title": "SideStore Quraşdırılır",
-    "install_sidestore_success_title": "SideStore Quraşdırıldı!",
-    "install_sidestore_success_message": "Quraşdırmanı tamamlamaq üçün SideStore-u açın və yeniləyin!",
-    "install_sidestore_step_download": "SideStore Yüklə",
-    "install_sidestore_step_install": "İmzala və SideStore Quraşdır",
-    "install_sidestore_step_pairing": "Cütləşmə Faylını Yerləşdir",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "LiveContainer+SideStore Quraşdırılır",
     "install_livecontainer_success_title": "LiveContainer+SideStore Quraşdırıldı!",
     "install_livecontainer_success_message": "Quraşdırmanı tamamlamaq üçün LiveContainer-ı açın, parametrlərə keçin və \"SideStore-dan Sertifikat İdxal Et\" düyməsinə basın. Sonra tətbiqlərə keçin, sidestore ikonuna basın və LiveContainer-ı yeniləyin.",

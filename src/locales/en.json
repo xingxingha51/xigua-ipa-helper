@@ -105,12 +105,12 @@
     "copy_error_clipboard": "Copy error to clipboard"
   },
   "operations": {
-    "install_sidestore_title": "Installing SideStore",
-    "install_sidestore_success_title": "SideStore Installed!",
-    "install_sidestore_success_message": "Open SideStore and refresh it to complete the installation!",
-    "install_sidestore_step_download": "Download SideStore",
-    "install_sidestore_step_install": "Sign & Install SideStore",
-    "install_sidestore_step_pairing": "Place Pairing File",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "Installing LiveContainer+SideStore",
     "install_livecontainer_success_title": "LiveContainer+SideStore Installed!",
     "install_livecontainer_success_message": "To complete the installation, open LiveContainer, choose settings, and click \"Import Certificate From SideStore.\" Then, choose apps, click the sidestore icon, and refresh LiveContainer.",

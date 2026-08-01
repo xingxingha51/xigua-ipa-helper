@@ -105,12 +105,12 @@
     "copy_error_clipboard": "Salin kesalahan ke clipboard"
   },
   "operations": {
-    "install_sidestore_title": "Memasang SideStore",
-    "install_sidestore_success_title": "SideStore Terpasang!",
-    "install_sidestore_success_message": "Buka SideStore dan segarkan untuk menyelesaikan pemasangan!",
-    "install_sidestore_step_download": "Unduh SideStore",
-    "install_sidestore_step_install": "Tanda Tangan & Pasang SideStore",
-    "install_sidestore_step_pairing": "Tempatkan Berkas Pairing",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "Memasang LiveContainer+SideStore",
     "install_livecontainer_success_title": "LiveContainer+SideStore Terpasang!",
     "install_livecontainer_success_message": "Untuk menyelesaikan pemasangan, buka LiveContainer, pilih pengaturan, dan klik \"Impor Sertifikat Dari SideStore.\" Kemudian, pilih aplikasi, klik ikon sidestore, dan segarkan LiveContainer.",

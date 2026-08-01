@@ -105,12 +105,12 @@
     "copy_error_clipboard": "Copiază eroarea în clipboard"
   },
   "operations": {
-    "install_sidestore_title": "Se instalează SideStore",
-    "install_sidestore_success_title": "SideStore a fost instalat!",
-    "install_sidestore_success_message": "Deschide SideStore și reîmprospătează-l pentru a finaliza instalarea!",
-    "install_sidestore_step_download": "Descarcă SideStore",
-    "install_sidestore_step_install": "Semnează și instalează SideStore",
-    "install_sidestore_step_pairing": "Plasează fișierul de asociere",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "Se instalează LiveContainer+SideStore",
     "install_livecontainer_success_title": "LiveContainer+SideStore a fost instalat!",
     "install_livecontainer_success_message": "Pentru a finaliza instalarea, deschide LiveContainer, alege setările și apasă „Import Certificate From SideStore”. Apoi alege aplicațiile, apasă pictograma SideStore și reîmprospătează LiveContainer.",

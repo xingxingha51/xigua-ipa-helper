@@ -105,12 +105,12 @@
     "copy_error_clipboard": "Hatayı panoya kopyala"
   },
   "operations": {
-    "install_sidestore_title": "SideStore Yükleniyor",
-    "install_sidestore_success_title": "SideStore Yüklendi!",
-    "install_sidestore_success_message": "Kurulumu tamamlamak için SideStore'u açın ve yenileyin!",
-    "install_sidestore_step_download": "SideStore'u İndir",
-    "install_sidestore_step_install": "SideStore'u İmzala ve Yükle",
-    "install_sidestore_step_pairing": "Eşleştirme Dosyasını Aktar",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "LiveContainer + SideStore Yükleniyor",
     "install_livecontainer_success_title": "LiveContainer + SideStore Yüklendi!",
     "install_livecontainer_success_message": "Kurulumu tamamlamak için LiveContainer'ı açın, ayarları seçip \"Import Certificate From SideStore\" seçeneğine dokunun. Ardından uygulamaları seçin, SideStore simgesine dokunun ve LiveContainer'ı yenileyin.",

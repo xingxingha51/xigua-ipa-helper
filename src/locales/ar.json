@@ -105,12 +105,12 @@
     "copy_error_clipboard": "نسخ نص الخطأ الى الحافظة"
   },
   "operations": {
-    "install_sidestore_title": "SideStore يتم تثيبت",
-    "install_sidestore_success_title": "!SideStore تم تثبيت",
-    "install_sidestore_success_message": "وقم بتحديث كل التطبيقات لاستكمال العملية SideStore افتح",
-    "install_sidestore_step_download": "SideStore تحميل",
-    "install_sidestore_step_install": "SideStore توقيع وتثبيت",
-    "install_sidestore_step_pairing": "قم بوضع ملف الإقتران",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "LiveContainer+SideStore يتم تثبيت",
     "install_livecontainer_success_title": "LiveContainer+SideStore تم تثبيت",
     "install_livecontainer_success_message": "لاستكمال العملية عليك فتح لايف كونتينر والذهاب الى الاعدادات ثم الضغط على \"استيراد الشهادة من سايدستور\" ثم من قائمة التطبيقات اضغط على أيقونة سايدستور وقم يتحديث لايف كونتينر",

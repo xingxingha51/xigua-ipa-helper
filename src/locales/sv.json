@@ -102,12 +102,12 @@
     "copy_error_clipboard": "Kopiera felet till urklipp"
   },
   "operations": {
-    "install_sidestore_title": "Installerar SideStore",
-    "install_sidestore_success_title": "SideStore är installerad!",
-    "install_sidestore_success_message": "Öppna SideStore och uppdatera (refresh) den i appen för att utföra installationen!",
-    "install_sidestore_step_download": "Ladda ner SideStore",
-    "install_sidestore_step_install": "Signera & installera SideStore",
-    "install_sidestore_step_pairing": "Placera Pairing Fil",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "Installerar LiveContainer+SideStore",
     "install_livecontainer_success_title": "LiveContainer+SideStore är installerad!",
     "install_livecontainer_success_message": "För att slutföra installation så behöver du öppna LiveContainer, välj inställningar, och tryck på \"Importera certifikat från Sidestore.\" Sedan, välj appar, tryck på sidestore iconen, och uppdatera (refresh) LiveContainer.",

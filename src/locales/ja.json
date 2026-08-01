@@ -105,12 +105,12 @@
     "copy_error_clipboard": "エラー内容をクリップボードにコピー"
   },
   "operations": {
-    "install_sidestore_title": "SideStoreをインストール中",
-    "install_sidestore_success_title": "SideStoreのインストール完了！",
-    "install_sidestore_success_message": "SideStoreを開き、Refresh（更新）してインストールを完了させてください！",
-    "install_sidestore_step_download": "SideStoreをダウンロード中",
-    "install_sidestore_step_install": "SideStoreを署名してインストール中",
-    "install_sidestore_step_pairing": "ペアリングファイルを配置中",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "LiveContainer+SideStoreをインストール中",
     "install_livecontainer_success_title": "LiveContainer+SideStoreのインストール完了！",
     "install_livecontainer_success_message": "インストールを完了するには、LiveContainerを開き、設定から「Import Certificate From SideStore」をクリックしてください。その後、アプリ一覧からSideStoreアイコンをクリックし、LiveContainerをリフレッシュしてください。",

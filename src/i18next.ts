@@ -56,9 +56,11 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    // This build targets Chinese-speaking users, so fall back to zh_cn
-    // rather than English when the detected locale has no translation.
-    fallbackLng: "zh_cn",
+    // Chinese first for this build's audience, then English. The second entry
+    // is load-bearing: with zh_cn alone, any key it's missing "falls back" to
+    // itself and renders as the raw key name (e.g. "device.pairing_cancel")
+    // instead of readable English.
+    fallbackLng: ["zh_cn", "en"],
     interpolation: {
       escapeValue: false,
     },

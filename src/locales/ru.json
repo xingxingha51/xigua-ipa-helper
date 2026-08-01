@@ -105,12 +105,12 @@
     "copy_error_clipboard": "Скопировать ошибку в буфер обмена"
   },
   "operations": {
-    "install_sidestore_title": "Установка SideStore",
-    "install_sidestore_success_title": "SideStore установлен!",
-    "install_sidestore_success_message": "Откройте SideStore и обновите его для завершения установки!",
-    "install_sidestore_step_download": "Скачайте SideStore",
-    "install_sidestore_step_install": "Подпишите и установите SideStore",
-    "install_sidestore_step_pairing": "Выберите файл сопряжения",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "Установка LiveContainer+SideStore",
     "install_livecontainer_success_title": "LiveContainer+SideStore установлены!",
     "install_livecontainer_success_message": "Для продолжения установки откройте LiveContainer, зайдите в настройки и выберите \"Import Certificate From SideStore.\" Затем выберите приложения, нажмите на иконку SideStore и обновите LiveContainer.",

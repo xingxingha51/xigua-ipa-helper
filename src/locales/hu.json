@@ -105,12 +105,12 @@
     "copy_error_clipboard": "Hiba kimásolása a vágólapra"
   },
   "operations": {
-    "install_sidestore_title": "SideStore telepítése",
-    "install_sidestore_success_title": "SideStore telepítve!",
-    "install_sidestore_success_message": "Nyisd meg a SideStoret és frissítsd újra a művelet befejezéséhez!",
-    "install_sidestore_step_download": "SideStore letöltése",
-    "install_sidestore_step_install": "SideStore aláírása és telepítése",
-    "install_sidestore_step_pairing": "Párosítófájl telepítése",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "LiveContainer+SideStore települ",
     "install_livecontainer_success_title": "LiveContainer+SideStore telepítve!",
     "install_livecontainer_success_message": "A telepítés befejezéséhez nyissa meg a LiveContainer alkalmazást, válassza a „Beállítások” menüpontot, majd kattintson az „Import Certificate From SideStore” gombra. Ezután válassza az „Alkalmazások” menüpontot, kattintson a SideStore ikonra, majd frissítse a LiveContainer alkalmazást.",

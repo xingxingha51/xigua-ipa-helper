@@ -105,12 +105,12 @@
     "copy_error_clipboard": "Erro ao copiar para a Área de Transferência"
   },
   "operations": {
-    "install_sidestore_title": "Instalar SideStore",
-    "install_sidestore_success_title": "SideStore instalado!",
-    "install_sidestore_success_message": "Abra SideStore e atualize-o para completar a instalação!",
-    "install_sidestore_step_download": "Baixar SideStore",
-    "install_sidestore_step_install": "Registrar e instalar SideStore",
-    "install_sidestore_step_pairing": "Colocar Arquivo de Pareamento",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "Instalar LiveContainer+SideStore",
     "install_livecontainer_success_title": "LiveContainer+SideStore instalado!",
     "install_livecontainer_success_message": "Para completar a instalação, abra LiveContainer, vá em Settings, e aperte \"Importar certificado de SideStore.\" Então, vá em Apps, clique no ícone do SideStore, e atualize LiveContainer.",

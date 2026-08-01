@@ -105,12 +105,12 @@
     "copy_error_clipboard": "ចម្លងកំហុសទៅ clipboard"
   },
   "operations": {
-    "install_sidestore_title": "កំពុងដំឡើង SideStore",
-    "install_sidestore_success_title": "បានដំឡើង SideStore!",
-    "install_sidestore_success_message": "បើក SideStore ហើយធ្វើការ refresh ដើម្បីបញ្ចប់ការដំឡើង!",
-    "install_sidestore_step_download": "ទាញយក SideStore",
-    "install_sidestore_step_install": "បញ្ជាក់ និងដំឡើង SideStore",
-    "install_sidestore_step_pairing": "ដាក់ឯកសារ Pairing",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "កំពុងដំឡើង LiveContainer+SideStore",
     "install_livecontainer_success_title": "បានដំឡើង LiveContainer+SideStore!",
     "install_livecontainer_success_message": "ដើម្បីបញ្ចប់ សូមបើក LiveContainer ទៅកាន់ settings ហើយចុច \"Import Certificate From SideStore\" បន្ទាប់មកទៅ apps ចុចរូបសញ្ញា sidestore ហើយធ្វើការធ្វើឱ្យថ្មី LiveContainer។",

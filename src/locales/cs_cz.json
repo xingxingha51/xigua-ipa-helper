@@ -101,12 +101,12 @@
     "copy_error_clipboard": "Zkopírovat chybu do schránky"
   },
   "operations": {
-    "install_sidestore_title": "Instalace SideStore",
-    "install_sidestore_success_title": "SideStore nainstalován!",
-    "install_sidestore_success_message": "Otevřete SideStore a aktualizujte jej pro dokončení instalace.",
-    "install_sidestore_step_download": "Stahování SideStore",
-    "install_sidestore_step_install": "Podepisování a instalace SideStore",
-    "install_sidestore_step_pairing": "Vkládání párovacího souboru",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "Instalace LiveContainer+SideStore",
     "install_livecontainer_success_title": "LiveContainer+SideStore nainstalován!",
     "install_livecontainer_success_message": "Pro dokončení instalace otevřete LiveContainer, zvolte nastavení a klikněte na „Importovat certifikát ze SideStore“. Poté vyberte aplikace, klikněte na ikonu SideStore a aktualizujte LiveContainer.",

@@ -81,7 +81,8 @@
     "max_certs_desc": "西瓜IPA安装助手 将撤销您现有的证书并生成一个新的。",
     "hide_certificate_list": "隐藏证书列表",
     "choose_what_to_revoke": "选择要撤销的内容",
-    "continue": "继续"
+    "continue": "继续",
+    "no_keyring_available": "无法在这台电脑上保存凭据。"
   },
   "device": {
     "title": "iDevice",
@@ -92,7 +93,11 @@
     "found_devices": "找到设备",
     "unable_load_devices_prefix": "无法加载设备：",
     "no_devices_found_period": "未找到设备。",
-    "selected": "已选择"
+    "selected": "已选择",
+    "pairing_in_progress_header": "正在与 {{device}} 配对…",
+    "pairing_in_progress_hint": "请解锁手机，点击「信任」，如有提示请输入锁屏密码。",
+    "pairing_cancel": "取消",
+    "failed_select": "选择设备失败"
   },
   "operation": {
     "failed": "操作失败。",
@@ -101,11 +106,11 @@
     "copy_error_clipboard": "复制错误到剪贴板"
   },
   "operations": {
-    "install_sidestore_title": "正在安装 SideStore",
-    "install_sidestore_success_title": "SideStore 安装成功！",
-    "install_sidestore_success_message": "打开 SideStore 并刷新它以完成安装！",
-    "install_sidestore_step_download": "下载 SideStore",
-    "install_sidestore_step_install": "签名并安装 SideStore",
+    "install_sidestore_title": "正在安装西瓜商店",
+    "install_sidestore_success_title": "西瓜商店安装成功！",
+    "install_sidestore_success_message": "打开西瓜商店并刷新一次即可完成设置。",
+    "install_sidestore_step_download": "下载西瓜商店",
+    "install_sidestore_step_install": "签名并安装",
     "install_sidestore_step_pairing": "放置配对文件",
     "install_livecontainer_title": "正在安装 LiveContainer+SideStore",
     "install_livecontainer_success_title": "LiveContainer+SideStore 安装成功！",
@@ -166,7 +171,8 @@
     "pairing_file_exported_success": "配对文件导出成功！",
     "failed_export_pairing_file": "导出配对文件失败",
     "export_not_recommended": "导出（不推荐）",
-    "refresh_installed_apps": "刷新已安装的应用"
+    "refresh_installed_apps": "刷新已安装的应用",
+    "place_all": "放置到所有应用"
   },
   "settings": {
     "anisette_server": "Anisette 服务器：",
@@ -190,7 +196,13 @@
     "language_hint": "您可以<translation>点击这里</translation>帮助我们改进翻译。",
     "dont_use_keyring": "不使用钥匙串",
     "dont_use_keyring_message": "勾选此项会让 西瓜IPA安装助手 将配对文件、anisette 状态和相关证书直接储存在磁盘内，从而使系统更不安全。只有当钥匙串无法正常储存且您充分了解此项的风险时可考虑勾选此项。",
-    "anisette_plain_hint": "登录 Apple ID 时需要用它来生成验证数据。一般不用改;如果登录一直失败,可以换一个再试。"
+    "anisette_plain_hint": "登录 Apple ID 时需要用它来生成验证数据。一般不用改;如果登录一直失败,可以换一个再试。",
+    "anisette_state_not_found": "没有可重置的 Anisette 状态",
+    "delete_stored_rppairing": "删除已保存的配对",
+    "delete_stored_rppairing_message": "确定要删除这台设备已保存的配对文件吗？删除后需要重新配对。",
+    "deleting_stored_rppairing": "正在删除已保存的配对…",
+    "stored_rppairing_deleted_success": "已保存的配对删除成功！",
+    "failed_delete_stored_rppairing": "删除已保存的配对失败"
   },
   "dialog": {
     "confirm": "确认",
@@ -199,7 +211,80 @@
   "error": {
     "title": "发生错误：{{msg}}",
     "unknown": "未知",
-    "support_message": "如果问题仍然存在，请按“复制到剪贴板”，并将复制的错误信息发送到<discord>Discord</discord>或提交<github>GitHub issue</github>以获取支持。"
+    "support_message": "如果问题仍然存在，请按“复制到剪贴板”，并将复制的错误信息发送到<discord>Discord</discord>或提交<github>GitHub issue</github>以获取支持。",
+    "suggestions_heading": "可以试试",
+    "suggestions": {
+      "underage": [
+        "你的 Apple ID 可能未达到使用开发者服务的年龄要求。"
+      ],
+      "account_locked": [
+        "别慌！这通常是多次登录失败后的正常保护，不会有什么损失。",
+        "打开 ((link:https://iforgot.apple.com/)) 解锁你的账号。"
+      ],
+      "auth": [
+        "确认账号密码没输错，即使你觉得是对的也再试一次。",
+        "还是不行的话，换一个 Apple ID 试试。",
+        "不支持「安全密钥」形式的双重验证。尽量用没开双重验证、或用受信任设备验证的 Apple ID。"
+      ],
+      "download": [
+        "手动从 ((link:https://github.com/xingxingha51/xigua-store/releases)) 下载 IPA，再用「导入 IPA」按钮安装。"
+      ],
+      "house_arrest": [
+        "[ios::26.3]确认你的设备没有装 iOS 26.3 的开发者测试版，那个版本的 house arrest 有 bug。"
+      ],
+      "pairing": [
+        "重新插拔设备后再试一次。",
+        "确认手机已经设置了锁屏密码。",
+        "确认是用数据线连接，而不是无线连接。"
+      ],
+      "canceled": [],
+      "operation_update": [],
+      "usbmuxd": [
+        "[platform::windows]确认已安装 ((link:https://apple.co/ms:iTunes))，并且它能识别到你的设备。",
+        "[platform::windows]卸载 iTunes 和 Apple Mobile Device Support，改从微软商店安装「Apple 设备」。",
+        "[platform::linux]确认 usbmuxd 已安装并正在运行。"
+      ],
+      "trust": [
+        "解锁手机、回到主屏幕，然后同意弹出的「信任」提示。"
+      ],
+      "device_coms": [
+        "确认设备已正确连接到电脑。",
+        "拔掉重插。还不行就换一个 USB 口和数据线。"
+      ],
+      "not_logged_in": [
+        "请先登录 Apple ID。"
+      ],
+      "no_device_selected": [
+        "请先选择一台设备。"
+      ],
+      "anisette": [
+        "确认电脑能正常联网。",
+        "换一个 Anisette 服务器，多试几个。",
+        "在浏览器里打开 ((link:{{anisetteServerUrl}})) 看能不能访问。"
+      ],
+      "keyring": [
+        "可以在设置里打开「不使用钥匙串」绕过这个问题，但安全性会降低。"
+      ],
+      "misc": [
+        "再试一次。重启助手、电脑或手机通常也能解决。"
+      ],
+      "admin": [
+        "试试用管理员权限运行本程序。"
+      ],
+      "filesystem": [
+        "确认西瓜IPA安装助手有读写文件的权限。"
+      ],
+      "not_enough_app_ids": [
+        "可用的 App ID 不够，装不了这个应用。",
+        "App ID 要 7 天后才会释放（无法提前删除），到时再试。",
+        "从西瓜商店里装应用有时更省 App ID，可以改从那里装。"
+      ],
+      "max_apps": [
+        "免费 Apple ID 同时最多只能装 3 个侧载应用。",
+        "先在手机上删掉一个不用的侧载应用，腾出名额再装。",
+        "已经过期的应用同样占用这 3 个名额，也要删掉才算数。"
+      ]
+    }
   },
   "update": {
     "new_version_available": "有新版本可用：{{version}}。是否要更新？",

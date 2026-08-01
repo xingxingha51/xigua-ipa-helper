@@ -105,12 +105,12 @@
     "copy_error_clipboard": "에러를 클립보드로 복사"
   },
   "operations": {
-    "install_sidestore_title": "SideStore 설치",
-    "install_sidestore_success_title": "SideStore가 설치됐습니다!",
-    "install_sidestore_success_message": "SideStore를 열고 새로고침하면 설치가 완료됩니다!",
-    "install_sidestore_step_download": "SideStore 다운로드",
-    "install_sidestore_step_install": "SideStore 서명 및 설치",
-    "install_sidestore_step_pairing": "페어링 파일 배치",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "LiveContainer+SideStore 설치",
     "install_livecontainer_success_title": "LiveContainer+SideStore가 설치됐습니다!",
     "install_livecontainer_success_message": "설치를 완료하려면 LiveContainer를 열고 설정에서 \"SideStore에서 인증서 가져오기\"를 눌러 주세요. 그다음 앱 항목에 들어가 SideStore 아이콘을 눌러 LiveContainer를 새로고침하세요.",

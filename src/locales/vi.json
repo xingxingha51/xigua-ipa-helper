@@ -101,12 +101,12 @@
     "copy_error_clipboard": "Sao chép lỗi vào bộ nhớ tạm"
   },
   "operations": {
-    "install_sidestore_title": "Đang tải SideStore",
-    "install_sidestore_success_title": "Tải SideStore thành công",
-    "install_sidestore_success_message": "Mở SideStore và bắt đầu làm mới chính nó để hoàn thành!",
-    "install_sidestore_step_download": "Tải SideStore",
-    "install_sidestore_step_install": "Kí & tải SideStore",
-    "install_sidestore_step_pairing": "Đặt tệp ghép máy",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "Đang tải LiveContainer+SideStore",
     "install_livecontainer_success_title": "Tải LiveContainer+SideStore thành công",
     "install_livecontainer_success_message": "Để hoàn thanh quá trình cài đặt, mở LiveContainer, vào Settings và chọn \"Import Certificate From SideStore.\" Sau đó, chọn Apps rồi SideStore, sau đó làm mới LiveContainer.",

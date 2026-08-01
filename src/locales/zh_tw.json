@@ -101,11 +101,11 @@
     "copy_error_clipboard": "複製錯誤到剪貼簿"
   },
   "operations": {
-    "install_sidestore_title": "正在安裝 SideStore",
-    "install_sidestore_success_title": "SideStore 安裝成功！",
-    "install_sidestore_success_message": "開啟 SideStore 並重新整理它以完成安裝！",
-    "install_sidestore_step_download": "下載 SideStore",
-    "install_sidestore_step_install": "簽名並安裝 SideStore",
+    "install_sidestore_title": "正在安裝西瓜商店",
+    "install_sidestore_success_title": "西瓜商店安裝成功！",
+    "install_sidestore_success_message": "開啟西瓜商店並重新整理一次即可完成設定。",
+    "install_sidestore_step_download": "下載西瓜商店",
+    "install_sidestore_step_install": "簽名並安裝",
     "install_sidestore_step_pairing": "放置配對檔案",
     "install_livecontainer_title": "正在安裝 LiveContainer+SideStore",
     "install_livecontainer_success_title": "LiveContainer+SideStore 安裝成功！",

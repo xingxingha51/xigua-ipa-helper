@@ -101,12 +101,12 @@
     "copy_error_clipboard": "Պատճենել սխալը սեղմատախտակում"
   },
   "operations": {
-    "install_sidestore_title": "Տեղադրվում է SideStore-ը",
-    "install_sidestore_success_title": "SideStore-ը տեղադրված է։",
-    "install_sidestore_success_message": "Բացեք SideStore-ը եւ թարմացրեք այն՝ տեղադրումն ավարտելու համար։",
-    "install_sidestore_step_download": "Ներբեռնվում է SideStore-ը",
-    "install_sidestore_step_install": "Ստորագրվում եւ տեղադրվում է SideStore-ը",
-    "install_sidestore_step_pairing": "Տեղադրվում է զուգավորման ֆայլը (Pairing File)",
+    "install_sidestore_title": "Installing Xigua Store",
+    "install_sidestore_success_title": "Xigua Store installed!",
+    "install_sidestore_success_message": "Open Xigua Store and refresh once to finish setup.",
+    "install_sidestore_step_download": "Downloading Xigua Store",
+    "install_sidestore_step_install": "Signing and installing",
+    "install_sidestore_step_pairing": "Placing pairing file",
     "install_livecontainer_title": "Տեղադրվում է LiveContainer+SideStore-ը",
     "install_livecontainer_success_title": "LiveContainer+SideStore-ը տեղադրված է։",
     "install_livecontainer_success_message": "Տեղադրումն ավարտելու համար բացեք LiveContainer-ը, ընտրեք կարգավորումները եւ սեղմեք \"Import Certificate From SideStore։\": Այնուհետեւ ընտրեք հավելվածներ, սեղմեք SideStore պատկերակը եւ թարմացրեք LiveContainer-ը։",
