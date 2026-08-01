@@ -38,10 +38,33 @@ pub const MACHINE_NAME: &str = "xigua-ipa-helper";
 /// can't be named here. The on-disk form is a plist with these two keys; if
 /// upstream renames them this deserialization fails loudly rather than
 /// silently exporting an account with no anisette data.
+///
+/// Both fields must go through `plist::Data`. isideload writes them with
+/// `serialize_bytes`, which lands in the plist as `<data>`, and a plain
+/// `Vec<u8>` asks serde for a sequence — that mismatch fails the parse with
+/// "invalid type: byte array, expected a sequence".
 #[derive(Deserialize)]
 struct StoredAnisetteState {
+    #[serde(deserialize_with = "bin_deserialize")]
     keychain_identifier: Vec<u8>,
+    #[serde(deserialize_with = "bin_deserialize_opt")]
     adi_pb: Option<Vec<u8>>,
+}
+
+fn bin_deserialize<'de, D>(d: D) -> Result<Vec<u8>, D::Error>
+where
+    D: serde::Deserializer<'de>,
+{
+    let data: plist::Data = Deserialize::deserialize(d)?;
+    Ok(data.into())
+}
+
+fn bin_deserialize_opt<'de, D>(d: D) -> Result<Option<Vec<u8>>, D::Error>
+where
+    D: serde::Deserializer<'de>,
+{
+    let data: Option<plist::Data> = Deserialize::deserialize(d)?;
+    Ok(data.map(Into::into))
 }
 
 /// Shape of `Account.sideconf`, matching `ImportedAccount` in the store app.
@@ -194,7 +217,7 @@ pub async fn export_account_file(
     let save_path = app
         .dialog()
         .file()
-        .add_filter("SideStore Account", &["sideconf"])
+        .add_filter("西瓜商店账号文件", &["sideconf"])
         .set_file_name("Account.sideconf")
         .set_title("导出账号文件")
         .blocking_save_file();

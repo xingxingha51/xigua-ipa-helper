@@ -3,6 +3,8 @@ import { invoke } from "@tauri-apps/api/core";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 import { useStore } from "../StoreContext";
+import { useError } from "../ErrorContext";
+import { AppError } from "../errors";
 
 interface ExportAccountProps {
   email: string;
@@ -18,6 +20,7 @@ interface ExportAccountProps {
  */
 export const ExportAccount = ({ email }: ExportAccountProps) => {
   const { t } = useTranslation();
+  const { err } = useError();
   const [anisetteServer] = useStore<string>("anisetteServer", "ani.sidestore.io");
   const [password, setPassword] = useState("");
   const [needsPassword, setNeedsPassword] = useState<boolean | null>(null);
@@ -46,7 +49,10 @@ export const ExportAccount = ({ email }: ExportAccountProps) => {
       toast.success(t("export_account.saved", { path }));
     } catch (e) {
       console.error("Failed to export account", e);
-      toast.error(String(e));
+      // AppError serializes to {type, message}; String() on it yields
+      // "[object Object]". Route it through useError like everywhere else so
+      // the toast gets a readable line and the details panel gets suggestions.
+      toast.error(err(t("export_account.failed"), e as AppError));
     } finally {
       setBusy(false);
     }
