@@ -46,7 +46,8 @@
     "ipa_files": "IPA 文件",
     "logo_alt": "西瓜IPA安装助手图标",
     "open_guide": "图文教程",
-    "based_on": "基于 iloader (MIT)"
+    "based_on": "基于 iloader (MIT)",
+    "export_account": "导出账号到手机"
   },
   "apple_id": {
     "title": "Apple ID",
@@ -205,5 +206,19 @@
     "updating": "正在更新...",
     "downloaded_restarting": "更新已下载！正在重启应用...",
     "failed_download": "下载更新失败：{{error}}"
+  },
+  "export_account": {
+    "title": "导出账号到手机",
+    "desc": "把当前登录的账号导出成文件，导入西瓜商店后手机端就不用再登录一次。",
+    "warning_title": "⚠️ 这个文件等同于你的密码",
+    "warning_body": "文件里含有明文的 Apple ID 密码。导入手机后请立刻删除电脑上的这份文件，也不要发给任何人。",
+    "password": "Apple ID 密码",
+    "need_password": "请输入密码",
+    "submit": "登录并导出",
+    "working": "正在登录并生成…",
+    "saved": "已保存到 {{path}}",
+    "step1": "把导出的 Account.sideconf 传到手机（隔空投送、微信文件传输都行）",
+    "step2": "在手机上把它移动到「文件 → 我的 iPhone → 西瓜商店」文件夹里",
+    "step3": "重新打开西瓜商店，会自动导入并删除该文件"
   }
 }

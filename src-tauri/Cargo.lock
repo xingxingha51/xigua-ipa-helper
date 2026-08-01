@@ -8715,6 +8715,7 @@ dependencies = [
 name = "xigua-ipa-helper"
 version = "1.0.0"
 dependencies = [
+ "base64 0.22.1",
  "chrono",
  "futures",
  "idevice",

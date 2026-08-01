@@ -1,5 +1,6 @@
 #[macro_use]
 mod account;
+mod account_export;
 #[macro_use]
 mod device;
 #[macro_use]
@@ -17,6 +18,7 @@ use crate::{
         delete_account, delete_app_id, get_certificates, invalidate_account, list_app_ids,
         logged_in_as, login_new, login_stored, reset_anisette_state, revoke_certificate,
     },
+    account_export::export_account_file,
     device::{
         DeviceInfoMutex, PairingCancelToken, cancel_pairing, list_devices, set_selected_device,
     },
@@ -120,6 +122,7 @@ pub fn run() {
             place_pairing_cmd,
             reset_anisette_state,
             export_pairing_cmd,
+            export_account_file,
             delete_stored_rppairing,
             keyring_available,
             force_disable_keyring,

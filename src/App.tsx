@@ -16,6 +16,7 @@ import { toast } from "sonner";
 import { Modal } from "./components/Modal";
 import { Settings } from "./pages/Settings";
 import { Pairing } from "./pages/Pairing";
+import { ExportAccount } from "./pages/ExportAccount";
 import { getVersion } from "@tauri-apps/api/app";
 import logo from "./logo.png";
 import { GlassCard } from "./components/GlassCard";
@@ -30,7 +31,7 @@ function App() {
   );
   const [loggedInAs, setLoggedInAs] = useState<string | null>(null);
   const [selectedDevice, setSelectedDevice] = useState<DeviceInfo | null>(null);
-  const [openModal, setOpenModal] = useState<null | "pairing">(null);
+  const [openModal, setOpenModal] = useState<null | "pairing" | "exportAccount">(null);
   const [version, setVersion] = useState<string>("");
 
   const refreshDevicesRef = useRef<(() => void) | null>(null);
@@ -243,6 +244,15 @@ function App() {
                 {t("app.refresh_devices")}{" "}
                 <span aria-hidden="true">{shortcutLabel("⌘R", "Ctrl+R")}</span>
               </button>
+              <button
+                className="workspace-list-item"
+                onClick={() => {
+                  if (!ensuredLoggedIn()) return;
+                  setOpenModal("exportAccount");
+                }}
+              >
+                {t("app.export_account")}
+              </button>
             </div>
           </section>
         </aside>
@@ -315,6 +325,12 @@ function App() {
       </div>
       <Modal isOpen={openModal === "pairing"} close={() => setOpenModal(null)}>
         <Pairing />
+      </Modal>
+      <Modal
+        isOpen={openModal === "exportAccount"}
+        close={() => setOpenModal(null)}
+      >
+        <ExportAccount email={loggedInAs ?? ""} />
       </Modal>
     </main>
   );

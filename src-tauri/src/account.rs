@@ -153,6 +153,54 @@ pub fn reset_anisette_state() -> Result<bool, AppError> {
     }
 }
 
+/// Signs in and hands back the account itself.
+///
+/// Split out so callers needing the raw account — the exporter builds its own
+/// `DeveloperSession` from it — don't have to go through `Sideloader`, which
+/// takes ownership and keeps its fields private.
+pub async fn login_apple_account(
+    app: &AppHandle,
+    window: &Window,
+    email: &str,
+    password: &str,
+    anisette_server: String,
+) -> Result<AppleAccount, AppError> {
+    let window_clone = window.clone();
+    let tfa_closure = move || -> Option<String> {
+        window_clone
+            .emit("2fa-required", ())
+            .expect("Failed to emit 2fa-required event");
+
+        let (tx, rx) = std::sync::mpsc::channel::<String>();
+        let handler_id = window_clone.listen("2fa-recieved", move |event| {
+            let _ = tx.send(event.payload().to_string());
+        });
+
+        let result = rx.recv_timeout(Duration::from_secs(120));
+        window_clone.unlisten(handler_id);
+
+        result.ok().map(|code| code.trim_matches('"').to_string())
+    };
+
+    let anisette_url = if !anisette_server.starts_with("http") {
+        format!("https://{}", anisette_server)
+    } else {
+        anisette_server
+    };
+
+    let account = AppleAccount::builder(&email.to_lowercase())
+        .anisette_provider(
+            RemoteV3AnisetteProvider::default()?
+                .set_serial_number("0".to_string())
+                .set_storage(create_sideloading_storage(app)?)
+                .set_url(&anisette_url),
+        )
+        .login(password, tfa_closure)
+        .await?;
+
+    Ok(account)
+}
+
 async fn login(
     app: &AppHandle,
     window: &Window,

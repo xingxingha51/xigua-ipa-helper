@@ -46,7 +46,8 @@
     "ipa_files": "Berkas IPA",
     "logo_alt": "logo Xigua IPA Helper",
     "open_guide": "Guide",
-    "based_on": "Based on iloader (MIT)"
+    "based_on": "Based on iloader (MIT)",
+    "export_account": "Export account to phone"
   },
   "apple_id": {
     "title": "Apple ID",
@@ -289,5 +290,19 @@
     "updating": "Memperbarui...",
     "downloaded_restarting": "Pembaruan diunduh! Memulai ulang aplikasi...",
     "failed_download": "Gagal mengunduh pembaruan: {{error}}"
+  },
+  "export_account": {
+    "title": "Export account to phone",
+    "desc": "Export the signed-in account so the store app can import it and skip its own sign-in.",
+    "warning_title": "⚠️ This file is equivalent to your password",
+    "warning_body": "It contains your Apple ID password in cleartext. Delete it from this computer right after importing, and don't send it to anyone.",
+    "password": "Apple ID password",
+    "need_password": "Enter your password",
+    "submit": "Sign in and export",
+    "working": "Signing in and building…",
+    "saved": "Saved to {{path}}",
+    "step1": "Transfer Account.sideconf to the phone (AirDrop or any file transfer)",
+    "step2": "Move it into Files → On My iPhone → the store app's folder",
+    "step3": "Reopen the store app; it imports the file and deletes it"
   }
 }

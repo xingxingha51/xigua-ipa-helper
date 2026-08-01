@@ -388,3 +388,27 @@ h3,
 h4 {
   margin: 0.5rem 0;
 }
+
+/* ---- export account modal ---- */
+.export-account { display: flex; flex-direction: column; gap: 0.6rem; max-width: 420px; }
+.export-account h2 { margin: 0; font-size: 1.2rem; font-weight: 660; }
+.export-account-desc { margin: 0; font-size: 0.9rem; opacity: 0.75; }
+.export-account-warning {
+  background: rgba(255, 149, 0, 0.14);
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.85rem;
+}
+.export-account-warning strong { display: block; margin-bottom: 0.25rem; }
+.export-account-warning p { margin: 0; opacity: 0.85; }
+.export-account-label {
+  font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase;
+  opacity: 0.6; margin-top: 0.35rem;
+}
+.export-account input { width: 100%; }
+.export-account input[readonly] { opacity: 0.6; }
+.export-account-submit { margin-top: 0.6rem; }
+.export-account-steps {
+  margin: 0.4rem 0 0; padding-left: 1.2rem;
+  font-size: 0.84rem; opacity: 0.75; display: flex; flex-direction: column; gap: 0.3rem;
+}
