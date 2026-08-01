@@ -139,6 +139,14 @@ impl ExportedAccount {
     }
 }
 
+/// Whether the password is already in the keychain, so the UI can skip asking.
+#[tauri::command]
+pub fn has_stored_password(email: String) -> bool {
+    keyring::Entry::new(MACHINE_NAME, &email)
+        .and_then(|entry| entry.get_password())
+        .is_ok()
+}
+
 /// Signs in, builds the account payload, and writes it to a path the user picks.
 ///
 /// Step one of the single-sign-in work: the file is produced here but carried
@@ -146,15 +154,30 @@ impl ExportedAccount {
 /// helper starts writing it to the phone by itself. A format mismatch would not
 /// surface at import — the store app writes the fields to the keychain without
 /// validating them — it would surface a week later as a failed refresh.
+///
+/// `password` is optional: when the user saved their credentials at sign-in we
+/// read it back from the keychain instead of asking again. Prompting would
+/// defeat the point of a feature whose whole purpose is one less login.
 #[tauri::command]
 pub async fn export_account_file(
     app: AppHandle,
     window: Window,
     email: String,
-    password: String,
+    password: Option<String>,
     anisette_server: String,
 ) -> Result<String, AppError> {
     let storage = create_sideloading_storage(&app)?;
+
+    let password = match password.filter(|p| !p.is_empty()) {
+        Some(p) => p,
+        None => keyring::Entry::new(MACHINE_NAME, &email)
+            .and_then(|entry| entry.get_password())
+            .map_err(|_| {
+                AppError::Misc(
+                    "没有保存的密码。请重新登录并勾选「保存凭据」，或手动输入密码。".into(),
+                )
+            })?,
+    };
 
     let mut apple_account =
         crate::account::login_apple_account(&app, &window, &email, &password, anisette_server)

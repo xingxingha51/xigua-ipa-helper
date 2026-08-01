@@ -298,11 +298,12 @@
     "warning_body": "It contains your Apple ID password in cleartext. Delete it from this computer right after importing, and don't send it to anyone.",
     "password": "Apple ID password",
     "need_password": "Enter your password",
-    "submit": "Sign in and export",
+    "submit": "Export account file",
     "working": "Signing in and building…",
     "saved": "Saved to {{path}}",
     "step1": "Transfer Account.sideconf to the phone (AirDrop or any file transfer)",
     "step2": "Move it into Files → On My iPhone → the store app's folder",
-    "step3": "Reopen the store app; it imports the file and deletes it"
+    "step3": "Reopen the store app; it imports the file and deletes it",
+    "why_password": "You didn't save your credentials at sign-in, so it's needed once more. Save them and this won't be asked again."
   }
 }

@@ -18,7 +18,7 @@ use crate::{
         delete_account, delete_app_id, get_certificates, invalidate_account, list_app_ids,
         logged_in_as, login_new, login_stored, reset_anisette_state, revoke_certificate,
     },
-    account_export::export_account_file,
+    account_export::{export_account_file, has_stored_password},
     device::{
         DeviceInfoMutex, PairingCancelToken, cancel_pairing, list_devices, set_selected_device,
     },
@@ -123,6 +123,7 @@ pub fn run() {
             reset_anisette_state,
             export_pairing_cmd,
             export_account_file,
+            has_stored_password,
             delete_stored_rppairing,
             keyring_available,
             force_disable_keyring,

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
@@ -12,18 +12,26 @@ interface ExportAccountProps {
  * Exports the signed-in account so 西瓜商店 can import it and skip its own
  * sign-in.
  *
- * The password is asked for again rather than kept around after login: this
- * screen is reached long after sign-in, and holding the password in renderer
- * state that whole time buys nothing.
+ * The password is only asked for when it isn't already in the keychain —
+ * prompting every time would defeat a feature whose whole point is one less
+ * login.
  */
 export const ExportAccount = ({ email }: ExportAccountProps) => {
   const { t } = useTranslation();
   const [anisetteServer] = useStore<string>("anisetteServer", "ani.sidestore.io");
   const [password, setPassword] = useState("");
+  const [needsPassword, setNeedsPassword] = useState<boolean | null>(null);
   const [busy, setBusy] = useState(false);
 
+  useEffect(() => {
+    if (!email) return;
+    invoke<boolean>("has_stored_password", { email })
+      .then((stored) => setNeedsPassword(!stored))
+      .catch(() => setNeedsPassword(true));
+  }, [email]);
+
   const doExport = async () => {
-    if (!password) {
+    if (needsPassword && !password) {
       toast.error(t("export_account.need_password"));
       return;
     }
@@ -31,7 +39,7 @@ export const ExportAccount = ({ email }: ExportAccountProps) => {
     try {
       const path = await invoke<string>("export_account_file", {
         email,
-        password,
+        password: password || null,
         anisetteServer,
       });
       setPassword("");
@@ -59,24 +67,34 @@ export const ExportAccount = ({ email }: ExportAccountProps) => {
       </label>
       <input id="export-account-email" type="text" value={email} readOnly />
 
-      <label className="export-account-label" htmlFor="export-account-password">
-        {t("export_account.password")}
-      </label>
-      <input
-        id="export-account-password"
-        type="password"
-        value={password}
-        autoComplete="off"
-        onChange={(e) => setPassword(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" && !busy) doExport();
-        }}
-      />
+      {needsPassword && (
+        <>
+          <label
+            className="export-account-label"
+            htmlFor="export-account-password"
+          >
+            {t("export_account.password")}
+          </label>
+          <input
+            id="export-account-password"
+            type="password"
+            value={password}
+            autoComplete="off"
+            onChange={(e) => setPassword(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !busy) doExport();
+            }}
+          />
+          <p className="export-account-hint">
+            {t("export_account.why_password")}
+          </p>
+        </>
+      )}
 
       <button
         className="export-account-submit"
         onClick={doExport}
-        disabled={busy || !password}
+        disabled={busy || needsPassword === null || (needsPassword && !password)}
       >
         {busy ? t("export_account.working") : t("export_account.submit")}
       </button>
