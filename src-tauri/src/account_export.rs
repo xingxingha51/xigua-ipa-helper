@@ -81,6 +81,12 @@ pub struct ExportedAccount {
     local_user: String,
     #[serde(rename = "adiPB")]
     adi_pb: String,
+    /// adi.pb is provisioned against one specific anisette server's ADI
+    /// instance. Replaying it at a different server yields anisette Apple
+    /// rejects, so the store has to be told which one issued it — it otherwise
+    /// picks the first reachable entry from a 10-server public list.
+    #[serde(rename = "anisetteServer")]
+    anisette_server: String,
 }
 
 /// Builds the account payload from a signed-in developer session.
@@ -92,6 +98,7 @@ pub async fn build_exported_account(
     password: &str,
     dev_session: &mut DeveloperSession,
     storage: &dyn SideloadingStorage,
+    anisette_server: &str,
 ) -> Result<ExportedAccount, AppError> {
     let teams = dev_session
         .list_teams()
@@ -152,7 +159,18 @@ pub async fn build_exported_account(
         certpass: machine_id,
         local_user: BASE64.encode(state.keychain_identifier),
         adi_pb: BASE64.encode(adi_pb),
+        anisette_server: normalize_anisette_url(anisette_server),
     })
+}
+
+/// The store stores server URLs with a scheme; the helper's setting may omit it.
+fn normalize_anisette_url(raw: &str) -> String {
+    let trimmed = raw.trim().trim_end_matches('/');
+    if trimmed.starts_with("http://") || trimmed.starts_with("https://") {
+        trimmed.to_string()
+    } else {
+        format!("https://{trimmed}")
+    }
 }
 
 impl ExportedAccount {
@@ -203,15 +221,21 @@ pub async fn export_account_file(
     };
 
     let mut apple_account =
-        crate::account::login_apple_account(&app, &window, &email, &password, anisette_server)
+        crate::account::login_apple_account(&app, &window, &email, &password, anisette_server.clone())
             .await?;
 
     let mut dev_session = DeveloperSession::from_account(&mut apple_account)
         .await
         .map_err(|e| AppError::Misc(format!("Failed to create developer session: {e:?}")))?;
 
-    let account = build_exported_account(&email, &password, &mut dev_session, storage.as_ref())
-        .await?;
+    let account = build_exported_account(
+        &email,
+        &password,
+        &mut dev_session,
+        storage.as_ref(),
+        &anisette_server,
+    )
+    .await?;
     let json = account.to_json()?;
 
     let save_path = app
