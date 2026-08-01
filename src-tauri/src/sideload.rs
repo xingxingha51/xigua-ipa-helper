@@ -88,39 +88,22 @@ pub async fn install_sidestore_operation(
     window: Window,
     device_state: State<'_, DeviceInfoMutex>,
     sideloader_state: State<'_, SideloaderMutex>,
-    nightly: bool,
+    #[allow(unused_variables)] nightly: bool,
     live_container: bool,
 ) -> Result<(), AppError> {
     let op = Operation::new("install_sidestore".to_string(), &window);
     op.start("download")?;
     // TODO: Cache & check version to avoid re-downloading
-    let (filename, url) = if live_container {
-        if nightly {
-            (
-                "LiveContainerSideStore-Nightly.ipa",
-                "https://github.com/LiveContainer/LiveContainer/releases/download/nightly/LiveContainer+SideStore.ipa",
-            )
-        } else {
-            (
-                "LiveContainerSideStore.ipa",
-                "https://github.com/LiveContainer/LiveContainer/releases/latest/download/LiveContainer+SideStore.ipa",
-            )
-        }
-    } else if nightly {
-        (
-            "SideStore-Nightly.ipa",
-            "https://github.com/SideStore/SideStore/releases/download/nightly/SideStore.ipa",
-        )
-    } else {
-        // Our own build, not upstream's. This helper exists to set up 西瓜商店;
-        // installing stock SideStore here would hand the user an English app
-        // with no bundled source and none of the trimming — i.e. none of the
-        // reasons the fork exists.
-        (
-            "XiguaStore.ipa",
-            "https://github.com/xingxingha51/xigua-store/releases/latest/download/XiguaStore.ipa",
-        )
-    };
+    //
+    // Upstream branched here on nightly/live_container to install stock SideStore
+    // or the LiveContainer+SideStore bundle. This build only ever installs 西瓜商店 —
+    // the UI hard-codes both flags to false, and installing stock SideStore would
+    // hand the user an English app with no bundled source and none of the trimming,
+    // i.e. none of the reasons this fork exists.
+    let (filename, url) = (
+        "XiguaStore.ipa",
+        "https://github.com/xingxingha51/xigua-store/releases/latest/download/XiguaStore.ipa",
+    );
 
     let dest = handle
         .path()
