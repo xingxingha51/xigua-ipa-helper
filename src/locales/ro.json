@@ -35,7 +35,7 @@
     "select_device": "Selectează un dispozitiv",
     "installers": "Instalatoare",
     "choose_build": "Alege o versiune",
-    "sidestore_stable": "SideStore (Stabil)",
+    "sidestore_stable": "Install Xigua Store",
     "sidestore_nightly": "SideStore (Nightly)",
     "livecontainer_sidestore_stable": "LiveContainer + SideStore (Stabil)",
     "livecontainer_sidestore_nightly": "LiveContainer + SideStore (Nightly)",

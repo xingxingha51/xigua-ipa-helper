@@ -35,7 +35,7 @@
     "select_device": "Seleccionar un dispositivo",
     "installers": "Instaladores",
     "choose_build": "Elige una compilación",
-    "sidestore_stable": "SideStore (Estable)",
+    "sidestore_stable": "Install Xigua Store",
     "sidestore_nightly": "SideStore (Nocturno)",
     "livecontainer_sidestore_stable": "LiveContainer + SideStore (Estable)",
     "livecontainer_sidestore_nightly": "LiveContainer + SideStore (Nocturno)",

@@ -35,7 +35,7 @@
     "select_device": "Ընտրեք սարքը",
     "installers": "Տեղադրողներ",
     "choose_build": "Ընտրեք տարբերակը",
-    "sidestore_stable": "SideStore ( Ստաբիլ տարբերակ )",
+    "sidestore_stable": "Install Xigua Store",
     "sidestore_nightly": "SideStore ( Գիշերային տարբերակ )",
     "livecontainer_sidestore_stable": "LiveContainer + SideStore ( Ստաբիլ տարբերակ )",
     "livecontainer_sidestore_nightly": "LiveContainer + SideStore ( Գիշերային տարբերակ )",

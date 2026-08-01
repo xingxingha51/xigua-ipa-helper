@@ -35,7 +35,7 @@
     "select_device": "Vyberte zařízení",
     "installers": "Instalátory",
     "choose_build": "Vyberte sestavení",
-    "sidestore_stable": "SideStore (Stabilní)",
+    "sidestore_stable": "Install Xigua Store",
     "sidestore_nightly": "SideStore (Nightly)",
     "livecontainer_sidestore_stable": "LiveContainer + SideStore (Stabilní)",
     "livecontainer_sidestore_nightly": "LiveContainer + SideStore (Nightly)",

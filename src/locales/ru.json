@@ -35,7 +35,7 @@
     "select_device": "Выберите устройство",
     "installers": "Установщики",
     "choose_build": "Выберите сборку",
-    "sidestore_stable": "SideStore (Стабильная)",
+    "sidestore_stable": "Install Xigua Store",
     "sidestore_nightly": "SideStore (Предварительная)",
     "livecontainer_sidestore_stable": "LiveContainer + SideStore (Стабильная)",
     "livecontainer_sidestore_nightly": "LiveContainer + SideStore (Предварительная)",

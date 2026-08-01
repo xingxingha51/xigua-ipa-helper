@@ -35,7 +35,7 @@
     "select_device": "Bir aygıt seçin",
     "installers": "Yükleyiciler",
     "choose_build": "Bir derleme seçin",
-    "sidestore_stable": "SideStore (Kararlı)",
+    "sidestore_stable": "Install Xigua Store",
     "sidestore_nightly": "SideStore (Geliştirme Sürümü)",
     "livecontainer_sidestore_stable": "LiveContainer + SideStore (Kararlı)",
     "livecontainer_sidestore_nightly": "LiveContainer + SideStore (Geliştirme Sürümü)",

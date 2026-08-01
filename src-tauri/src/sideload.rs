@@ -112,9 +112,13 @@ pub async fn install_sidestore_operation(
             "https://github.com/SideStore/SideStore/releases/download/nightly/SideStore.ipa",
         )
     } else {
+        // Our own build, not upstream's. This helper exists to set up 西瓜商店;
+        // installing stock SideStore here would hand the user an English app
+        // with no bundled source and none of the trimming — i.e. none of the
+        // reasons the fork exists.
         (
-            "SideStore.ipa",
-            "https://github.com/SideStore/SideStore/releases/latest/download/SideStore.ipa",
+            "XiguaStore.ipa",
+            "https://github.com/xingxingha51/xigua-store/releases/latest/download/XiguaStore.ipa",
         )
     };
 

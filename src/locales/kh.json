@@ -35,7 +35,7 @@
     "select_device": "ជ្រើសរើសឧបករណ៍",
     "installers": "កម្មវិធីដំឡើង",
     "choose_build": "ជ្រើសរើស កំណែ",
-    "sidestore_stable": "SideStore (កំណែល្អ)",
+    "sidestore_stable": "Install Xigua Store",
     "sidestore_nightly": "SideStore (កំណែសាកល្បង)",
     "livecontainer_sidestore_stable": "LiveContainer + SideStore (កំណែល្អ)",
     "livecontainer_sidestore_nightly": "LiveContainer + SideStore (កំណែសាកល្បង)",

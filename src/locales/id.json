@@ -35,7 +35,7 @@
     "select_device": "Pilih perangkat",
     "installers": "Pemasang",
     "choose_build": "Pilih sebuah build",
-    "sidestore_stable": "SideStore (Stabil)",
+    "sidestore_stable": "Install Xigua Store",
     "sidestore_nightly": "SideStore (Nightly)",
     "livecontainer_sidestore_stable": "LiveContainer + SideStore (Stabil)",
     "livecontainer_sidestore_nightly": "LiveContainer + SideStore (Nightly)",

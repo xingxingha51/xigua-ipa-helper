@@ -35,7 +35,7 @@
     "select_device": "기기 선택",
     "installers": "설치",
     "choose_build": "빌드 선택",
-    "sidestore_stable": "SideStore (안정)",
+    "sidestore_stable": "Install Xigua Store",
     "sidestore_nightly": "SideStore (미리보기)",
     "livecontainer_sidestore_stable": "LiveContainer + SideStore (안정)",
     "livecontainer_sidestore_nightly": "LiveContainer + SideStore (미리보기)",

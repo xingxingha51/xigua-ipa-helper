@@ -35,7 +35,7 @@
     "select_device": "选择设备",
     "installers": "安装器",
     "choose_build": "选择构建版本",
-    "sidestore_stable": "SideStore（稳定版）",
+    "sidestore_stable": "安装西瓜商店",
     "sidestore_nightly": "SideStore（每夜构建版）",
     "livecontainer_sidestore_stable": "LiveContainer + SideStore（稳定版）",
     "livecontainer_sidestore_nightly": "LiveContainer + SideStore（每夜构建版）",
