@@ -34,6 +34,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # tauri-action 打包用的是 tauri.conf.json 里的版本号,tag 只是发布名。
+      # 两边对不上的话,发布页写着 v1.0.4、用户装完却显示 1.0.3,而且不会有
+      # 任何报错。在这儿卡死,免得又靠人记。
+      - name: Verify tag matches the packaged version
+        shell: bash
+        run: |
+          TAG="${{ github.event_name == 'release' && github.event.release.tag_name || inputs.tag }}"
+          VERSION=$(node -p "require('./src-tauri/tauri.conf.json').version")
+          echo "tag: $TAG / 包里: $VERSION"
+          [ "$TAG" = "v$VERSION" ] || {
+            echo "::error::tag 是 $TAG,但 tauri.conf.json 里是 $VERSION。发版前要一起改 package.json、src-tauri/tauri.conf.json、src-tauri/Cargo.toml。"
+            exit 1
+          }
+
       - name: Cache Rust dependencies
         uses: actions/cache@v4
         with:

@@ -1,6 +1,6 @@
 [package]
 name = "xigua-ipa-helper"
-version = "1.0.3"
+version = "1.0.4"
 description = "User-friendly sideloader"
 authors = ["nab138"]
 edition = "2024"
