@@ -47,7 +47,8 @@
     "logo_alt": "Xigua IPA Helper ロゴ",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)",
-    "export_account": "Export account to phone"
+    "export_account": "Export account to phone",
+    "sync_account": "インストール後にアカウントを自動同期し、端末での再ログインを省きます"
   },
   "apple_id": {
     "title": "Apple ID",
@@ -118,7 +119,8 @@
     "install_livecontainer_step_install": "LiveContainer+SideStoreを署名してインストール中",
     "install_livecontainer_step_pairing": "ペアリングファイルを配置中",
     "sideload_title": "アプリをインストール中",
-    "sideload_step_install": "アプリを署名してインストール中"
+    "sideload_step_install": "アプリを署名してインストール中",
+    "install_sidestore_step_account": "アカウントを同期中"
   },
   "certificates": {
     "manage": "証明書の管理",

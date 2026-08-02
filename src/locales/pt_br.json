@@ -47,7 +47,8 @@
     "logo_alt": "logo do Xigua IPA Helper",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)",
-    "export_account": "Export account to phone"
+    "export_account": "Export account to phone",
+    "sync_account": "Sync the account after installing, so you don’t sign in again on the device"
   },
   "apple_id": {
     "title": "Apple ID",
@@ -118,7 +119,8 @@
     "install_livecontainer_step_install": "Registrar e instalar LiveContainer+SideStore",
     "install_livecontainer_step_pairing": "Colocar Arquivo de Pareamento",
     "sideload_title": "Instalar aplicativo",
-    "sideload_step_install": "Registrar e instalar App"
+    "sideload_step_install": "Registrar e instalar App",
+    "install_sidestore_step_account": "Syncing account to device"
   },
   "certificates": {
     "manage": "Gerenciar certificados",

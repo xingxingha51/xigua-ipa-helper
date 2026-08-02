@@ -54,6 +54,10 @@ export const installSideStoreOperation: Operation = {
       id: "pairing",
       titleKey: "operations.install_sidestore_step_pairing",
     },
+    {
+      id: "account",
+      titleKey: "operations.install_sidestore_step_account",
+    },
   ],
 };
 

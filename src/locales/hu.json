@@ -47,7 +47,8 @@
     "logo_alt": "Xigua IPA Helper logó",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)",
-    "export_account": "Export account to phone"
+    "export_account": "Export account to phone",
+    "sync_account": "Sync the account after installing, so you don’t sign in again on the device"
   },
   "apple_id": {
     "title": "Apple ID",
@@ -118,7 +119,8 @@
     "install_livecontainer_step_install": "LiveContainer+SideStore aláírása és telepítése",
     "install_livecontainer_step_pairing": "Párosítófájl telepítése",
     "sideload_title": "App települ",
-    "sideload_step_install": "App aláírása és telepítése"
+    "sideload_step_install": "App aláírása és telepítése",
+    "install_sidestore_step_account": "Syncing account to device"
   },
   "certificates": {
     "manage": "Tanusítványok kezelése",

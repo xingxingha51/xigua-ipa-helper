@@ -47,7 +47,8 @@
     "logo_alt": "西瓜IPA安装助手图标",
     "open_guide": "图文教程",
     "based_on": "基于 iloader (MIT)",
-    "export_account": "导出账号到手机"
+    "export_account": "导出账号到手机",
+    "sync_account": "安装后自动把账号同步到手机,免去在手机上再登录一次"
   },
   "apple_id": {
     "title": "Apple ID",
@@ -119,7 +120,8 @@
     "install_livecontainer_step_install": "签名并安装 LiveContainer+SideStore",
     "install_livecontainer_step_pairing": "放置配对文件",
     "sideload_title": "正在安装应用",
-    "sideload_step_install": "签名并安装应用"
+    "sideload_step_install": "签名并安装应用",
+    "install_sidestore_step_account": "同步账号到手机"
   },
   "certificates": {
     "manage": "管理证书",

@@ -47,7 +47,8 @@
     "logo_alt": "Xigua IPA Helper logo",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)",
-    "export_account": "Export account to phone"
+    "export_account": "Export account to phone",
+    "sync_account": "Sync the account after installing, so you don’t sign in again on the device"
   },
   "apple_id": {
     "title": "Apple ID",
@@ -115,7 +116,8 @@
     "install_livecontainer_step_install": "Signera & Installera LiveContainer+SideStore",
     "install_livecontainer_step_pairing": "Placera Pairing Fil",
     "sideload_title": "Installerar Appen",
-    "sideload_step_install": "Signera & Installera Appen"
+    "sideload_step_install": "Signera & Installera Appen",
+    "install_sidestore_step_account": "Syncing account to device"
   },
   "certificates": {
     "manage": "Hantera Certifikat",

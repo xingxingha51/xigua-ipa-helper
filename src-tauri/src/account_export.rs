@@ -201,7 +201,7 @@ pub fn has_stored_password(email: String) -> bool {
 /// defeat the point of a feature whose whole purpose is one less login.
 /// Signs in and builds the payload. Shared by both delivery paths so they can
 /// never drift in what they put in the file.
-async fn prepare_account_payload(
+pub(crate) async fn prepare_account_payload(
     app: &AppHandle,
     window: &Window,
     email: &str,

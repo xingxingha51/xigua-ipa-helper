@@ -90,6 +90,9 @@ pub async fn install_sidestore_operation(
     sideloader_state: State<'_, SideloaderMutex>,
     #[allow(unused_variables)] nightly: bool,
     live_container: bool,
+    sync_account: bool,
+    email: Option<String>,
+    anisette_server: Option<String>,
 ) -> Result<(), AppError> {
     let op = Operation::new("install_sidestore".to_string(), &window);
     op.start("download")?;
@@ -133,7 +136,9 @@ pub async fn install_sidestore_operation(
         "pairing",
         get_sidestore_info(&device.info, live_container).await,
     )?;
+    let store_bundle_id;
     if let Some(info) = sidestore_info {
+        store_bundle_id = info.bundle_id.clone();
         let mut usbmuxd = op.fail_if_err("pairing", get_usbmuxd().await)?;
 
         let provider = op.fail_if_err(
@@ -155,7 +160,38 @@ pub async fn install_sidestore_operation(
         );
     }
 
-    op.complete("pairing")?;
+    op.move_on("pairing", "account")?;
+
+    // Optional last step. The app is already installed and paired by now, so a
+    // failure here is reported on its own step rather than failing the install —
+    // the user can still sign in on the device by hand.
+    match (sync_account, email, anisette_server) {
+        (true, Some(email), Some(anisette_server)) => {
+            let payload = crate::account_export::prepare_account_payload(
+                &handle,
+                &window,
+                &email,
+                None,
+                &anisette_server,
+            )
+            .await;
+
+            match payload {
+                Ok(json) => {
+                    let provider = op.fail_if_err("account", get_provider(&device.info).await)?;
+                    op.fail_if_err(
+                        "account",
+                        place_file(json, &provider, store_bundle_id, "Account.sideconf".into())
+                            .await,
+                    )?;
+                    op.complete("account")?;
+                }
+                Err(e) => return op.fail("account", e),
+            }
+        }
+        _ => op.complete("account")?,
+    }
+
     Ok(())
 }
 

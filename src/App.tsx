@@ -22,6 +22,7 @@ import logo from "./logo.png";
 import { GlassCard } from "./components/GlassCard";
 import { useTranslation } from "react-i18next";
 import { usePlatform } from "./PlatformContext";
+import { useStore } from "./StoreContext";
 
 function App() {
   const { t } = useTranslation();
@@ -30,6 +31,11 @@ function App() {
     null,
   );
   const [loggedInAs, setLoggedInAs] = useState<string | null>(null);
+  // Default on: handing the account over during install is the whole point of
+  // the export feature — making it opt-in would leave most users doing the
+  // manual dance they don't know exists.
+  const [syncAccount, setSyncAccount] = useStore<boolean>("syncAccountOnInstall", true);
+  const [anisetteServer] = useStore<string>("anisetteServer", "ani.sidestore.io");
   const [selectedDevice, setSelectedDevice] = useState<DeviceInfo | null>(null);
   const [openModal, setOpenModal] = useState<null | "pairing" | "exportAccount">(null);
   const [version, setVersion] = useState<string>("");
@@ -292,6 +298,12 @@ function App() {
                     startOperation(installSideStoreOperation, {
                       nightly: false,
                       liveContainer: false,
+                      // Hand the account over in the same run: signing in again
+                      // on the device is the one manual step left, and we
+                      // already have everything needed to skip it.
+                      syncAccount,
+                      email: syncAccount ? loggedInAs : null,
+                      anisetteServer: syncAccount ? anisetteServer : null,
                     }).catch((e) => {
                       console.log(e.type);
                       console.error(e.message);
@@ -301,6 +313,14 @@ function App() {
                   {t("app.sidestore_stable")}
                 </button>
               </div>
+              <label className="install-option">
+                <input
+                  type="checkbox"
+                  checked={syncAccount}
+                  onChange={(e) => setSyncAccount(e.target.checked)}
+                />
+                <span>{t("app.sync_account")}</span>
+              </label>
             </GlassCard>
           </section>
           <section className="workspace-section">

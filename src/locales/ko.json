@@ -47,7 +47,8 @@
     "logo_alt": "Xigua IPA Helper 로고",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)",
-    "export_account": "Export account to phone"
+    "export_account": "Export account to phone",
+    "sync_account": "Sync the account after installing, so you don’t sign in again on the device"
   },
   "apple_id": {
     "title": "Apple 계정",
@@ -118,7 +119,8 @@
     "install_livecontainer_step_install": "LiveContainer+SideStore 서명 및 설치",
     "install_livecontainer_step_pairing": "페어링 파일 배치",
     "sideload_title": "앱 설치",
-    "sideload_step_install": "앱 서명 및 설치"
+    "sideload_step_install": "앱 서명 및 설치",
+    "install_sidestore_step_account": "Syncing account to device"
   },
   "certificates": {
     "manage": "인증서 관리",

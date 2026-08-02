@@ -47,7 +47,8 @@
     "logo_alt": "Xigua IPA Helper أيقونة",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)",
-    "export_account": "Export account to phone"
+    "export_account": "Export account to phone",
+    "sync_account": "Sync the account after installing, so you don’t sign in again on the device"
   },
   "apple_id": {
     "title": "معرف آبل",
@@ -118,7 +119,8 @@
     "install_livecontainer_step_install": "LiveContainer+SideStore توقيع وتثبيت",
     "install_livecontainer_step_pairing": "قم بوضع ملف الإقتران",
     "sideload_title": "يتم تثبيت التطبيق",
-    "sideload_step_install": "توقيع وتثبيت التطبيق"
+    "sideload_step_install": "توقيع وتثبيت التطبيق",
+    "install_sidestore_step_account": "Syncing account to device"
   },
   "certificates": {
     "manage": "إدارة الشهادات",

@@ -47,7 +47,8 @@
     "logo_alt": "Xigua IPA Helper logosu",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)",
-    "export_account": "Export account to phone"
+    "export_account": "Export account to phone",
+    "sync_account": "Sync the account after installing, so you don’t sign in again on the device"
   },
   "apple_id": {
     "title": "Apple Kimliği",
@@ -118,7 +119,8 @@
     "install_livecontainer_step_install": "LiveContainer + SideStore'u İmzala ve Yükle",
     "install_livecontainer_step_pairing": "Eşleştirme Dosyasını Aktar",
     "sideload_title": "Uygulama Yükleniyor",
-    "sideload_step_install": "Uygulamayı İmzala ve Yükle"
+    "sideload_step_install": "Uygulamayı İmzala ve Yükle",
+    "install_sidestore_step_account": "Syncing account to device"
   },
   "certificates": {
     "manage": "Sertifikaları Yönet",

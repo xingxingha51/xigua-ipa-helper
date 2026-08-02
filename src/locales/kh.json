@@ -47,7 +47,8 @@
     "logo_alt": "រូបសញ្ញា Xigua IPA Helper",
     "open_guide": "Guide",
     "based_on": "Based on iloader (MIT)",
-    "export_account": "Export account to phone"
+    "export_account": "Export account to phone",
+    "sync_account": "Sync the account after installing, so you don’t sign in again on the device"
   },
   "apple_id": {
     "title": "Apple ID",
@@ -118,7 +119,8 @@
     "install_livecontainer_step_install": "បញ្ជាក់ និងដំឡើង LiveContainer+SideStore",
     "install_livecontainer_step_pairing": "ដាក់ឯកសារ Pairing",
     "sideload_title": "កំពុងដំឡើងកម្មវិធី",
-    "sideload_step_install": "បញ្ជាក់ និងដំឡើងកម្មវិធី"
+    "sideload_step_install": "បញ្ជាក់ និងដំឡើងកម្មវិធី",
+    "install_sidestore_step_account": "Syncing account to device"
   },
   "certificates": {
     "manage": "គ្រប់គ្រងវិញ្ញាបនបត្រ",
