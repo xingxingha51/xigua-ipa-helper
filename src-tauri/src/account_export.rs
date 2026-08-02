@@ -199,19 +199,20 @@ pub fn has_stored_password(email: String) -> bool {
 /// `password` is optional: when the user saved their credentials at sign-in we
 /// read it back from the keychain instead of asking again. Prompting would
 /// defeat the point of a feature whose whole purpose is one less login.
-#[tauri::command]
-pub async fn export_account_file(
-    app: AppHandle,
-    window: Window,
-    email: String,
+/// Signs in and builds the payload. Shared by both delivery paths so they can
+/// never drift in what they put in the file.
+async fn prepare_account_payload(
+    app: &AppHandle,
+    window: &Window,
+    email: &str,
     password: Option<String>,
-    anisette_server: String,
-) -> Result<String, AppError> {
-    let storage = create_sideloading_storage(&app)?;
+    anisette_server: &str,
+) -> Result<Vec<u8>, AppError> {
+    let storage = create_sideloading_storage(app)?;
 
     let password = match password.filter(|p| !p.is_empty()) {
         Some(p) => p,
-        None => keyring::Entry::new(MACHINE_NAME, &email)
+        None => keyring::Entry::new(MACHINE_NAME, email)
             .and_then(|entry| entry.get_password())
             .map_err(|_| {
                 AppError::Misc(
@@ -220,23 +221,81 @@ pub async fn export_account_file(
             })?,
     };
 
-    let mut apple_account =
-        crate::account::login_apple_account(&app, &window, &email, &password, anisette_server.clone())
-            .await?;
+    let mut apple_account = crate::account::login_apple_account(
+        app,
+        window,
+        email,
+        &password,
+        anisette_server.to_string(),
+    )
+    .await?;
 
     let mut dev_session = DeveloperSession::from_account(&mut apple_account)
         .await
         .map_err(|e| AppError::Misc(format!("Failed to create developer session: {e:?}")))?;
 
     let account = build_exported_account(
-        &email,
+        email,
         &password,
         &mut dev_session,
         storage.as_ref(),
-        &anisette_server,
+        anisette_server,
     )
     .await?;
-    let json = account.to_json()?;
+
+    account.to_json()
+}
+
+/// Writes the account straight into the store app's Documents over AFC, so the
+/// user never handles a file that contains their password in cleartext.
+///
+/// The store imports it on its next cold launch and deletes it immediately —
+/// see `detectAndImportAccountFile`. Nothing is written to the desktop.
+#[tauri::command]
+pub async fn send_account_to_device(
+    app: AppHandle,
+    window: Window,
+    device_state: tauri::State<'_, crate::device::DeviceInfoMutex>,
+    email: String,
+    password: Option<String>,
+    anisette_server: String,
+) -> Result<String, AppError> {
+    let device = {
+        let guard = device_state.lock().unwrap();
+        match &*guard {
+            Some(d) => d.clone(),
+            None => return Err(AppError::NoDeviceSelected),
+        }
+    };
+
+    // Locate the store first: signing in takes a while, and failing afterwards
+    // because the app isn't installed would waste all of it.
+    let info = crate::pairing::get_sidestore_info(&device.info, false)
+        .await?
+        .ok_or_else(|| {
+            AppError::HouseArrest(
+                "手机上没有找到西瓜IPA助手".into(),
+                "请先用「一键安装」把它装到手机上，再发送账号。".into(),
+            )
+        })?;
+
+    let json = prepare_account_payload(&app, &window, &email, password, &anisette_server).await?;
+
+    let provider = crate::device::get_provider(&device.info).await?;
+    crate::pairing::place_file(json, &provider, info.bundle_id, "Account.sideconf".into()).await?;
+
+    Ok(info.name)
+}
+
+#[tauri::command]
+pub async fn export_account_file(
+    app: AppHandle,
+    window: Window,
+    email: String,
+    password: Option<String>,
+    anisette_server: String,
+) -> Result<String, AppError> {
+    let json = prepare_account_payload(&app, &window, &email, password, &anisette_server).await?;
 
     let save_path = app
         .dialog()

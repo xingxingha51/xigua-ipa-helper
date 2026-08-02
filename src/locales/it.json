@@ -299,6 +299,9 @@
     "step2": "Move it into Files → On My iPhone → the store app's folder",
     "step3": "Reopen the store app; it imports the file and deletes it",
     "why_password": "You didn't save your credentials at sign-in, so it's needed once more. Save them and this won't be asked again.",
-    "failed": "Failed to export account"
+    "failed": "Failed to export account",
+    "send": "Send to device",
+    "send_hint": "Writes straight into the app on your device — no file is left on this computer. Relaunch it on the device afterwards.",
+    "sent": "Sent to {{app}} — relaunch it on your device to finish importing"
   }
 }

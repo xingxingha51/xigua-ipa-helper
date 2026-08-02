@@ -33,22 +33,26 @@ export const ExportAccount = ({ email }: ExportAccountProps) => {
       .catch(() => setNeedsPassword(true));
   }, [email]);
 
-  const doExport = async () => {
+  const run = async (command: "send_account_to_device" | "export_account_file") => {
     if (needsPassword && !password) {
       toast.error(t("export_account.need_password"));
       return;
     }
     setBusy(true);
     try {
-      const path = await invoke<string>("export_account_file", {
+      const result = await invoke<string>(command, {
         email,
         password: password || null,
         anisetteServer,
       });
       setPassword("");
-      toast.success(t("export_account.saved", { path }));
+      toast.success(
+        command === "send_account_to_device"
+          ? t("export_account.sent", { app: result })
+          : t("export_account.saved", { path: result }),
+      );
     } catch (e) {
-      console.error("Failed to export account", e);
+      console.error(`${command} failed`, e);
       // AppError serializes to {type, message}; String() on it yields
       // "[object Object]". Route it through useError like everywhere else so
       // the toast gets a readable line and the details panel gets suggestions.
@@ -88,7 +92,7 @@ export const ExportAccount = ({ email }: ExportAccountProps) => {
             autoComplete="off"
             onChange={(e) => setPassword(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === "Enter" && !busy) doExport();
+              if (e.key === "Enter" && !busy) run("send_account_to_device");
             }}
           />
           <p className="export-account-hint">
@@ -99,12 +103,20 @@ export const ExportAccount = ({ email }: ExportAccountProps) => {
 
       <button
         className="export-account-submit"
-        onClick={doExport}
+        onClick={() => run("send_account_to_device")}
         disabled={busy || needsPassword === null || (needsPassword && !password)}
       >
-        {busy ? t("export_account.working") : t("export_account.submit")}
+        {busy ? t("export_account.working") : t("export_account.send")}
       </button>
+      <p className="export-account-hint">{t("export_account.send_hint")}</p>
 
+      <button
+        className="export-account-secondary"
+        onClick={() => run("export_account_file")}
+        disabled={busy || needsPassword === null || (needsPassword && !password)}
+      >
+        {t("export_account.submit")}
+      </button>
       <ol className="export-account-steps">
         <li>{t("export_account.step1")}</li>
         <li>{t("export_account.step2")}</li>
