@@ -103,17 +103,23 @@ pub async fn install_sidestore_operation(
     // the UI hard-codes both flags to false, and installing stock SideStore would
     // hand the user an English app with no bundled source and none of the trimming,
     // i.e. none of the reasons this fork exists.
-    let (filename, url) = (
-        "XiguaStore.ipa",
+    // 先走自己的域名。国内直连 GitHub releases 经常极慢甚至断流,用户就卡在
+    // 这一步不动 —— 这是个 24 MB 的包。loveipa.com 上的 /dl/ 是一层
+    // Cloudflare 转发,边缘去取 GitHub,客户端只跟我们的域名打交道。
+    //
+    // GitHub 留作兜底:转发那层要是挂了或改了,不该把安装整个堵死。
+    let filename = "XiguaStore.ipa";
+    let urls = [
+        "https://loveipa.com/dl/xigua-store/latest/XiguaStore.ipa",
         "https://github.com/xingxingha51/xigua-store/releases/latest/download/XiguaStore.ipa",
-    );
+    ];
 
     let dest = handle
         .path()
         .temp_dir()
         .map_err(|e| AppError::Filesystem("Failed to get temp dir".into(), e.to_string()))?
         .join(filename);
-    op.fail_if_err("download", download(url, &dest).await)?;
+    op.fail_if_err("download", download_from_first_available(&urls, &dest).await)?;
     op.move_on("download", "install")?;
     let device = {
         let device_guard = device_state.lock().unwrap();
@@ -193,6 +199,25 @@ pub async fn install_sidestore_operation(
     }
 
     Ok(())
+}
+
+/// 依次试,第一个成功的就用。
+///
+/// 只在**整个下载都失败**时才换下一个 —— 半路断流的重试留给 reqwest 自己,
+/// 这里换源是为了应对「这个域名根本连不上」。报错带上最后一次的原因,不然
+/// 用户只看到「下载失败」,不知道是网的问题还是地址挂了。
+async fn download_from_first_available(urls: &[&str], dest: &PathBuf) -> Result<(), AppError> {
+    let mut last = None;
+    for (i, url) in urls.iter().enumerate() {
+        match download(url, dest).await {
+            Ok(()) => return Ok(()),
+            Err(e) => {
+                eprintln!("下载失败({}/{}) {url}: {e:?}", i + 1, urls.len());
+                last = Some(e);
+            }
+        }
+    }
+    Err(last.unwrap_or_else(|| AppError::Download("没有可用的下载地址".into())))
 }
 
 pub async fn download(url: impl AsRef<str>, dest: &PathBuf) -> Result<(), AppError> {
