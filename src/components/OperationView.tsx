@@ -13,6 +13,7 @@ import { Trans, useTranslation } from "react-i18next";
 import { ErrorVariant, getErrorSuggestions, parseLinkToken } from "../errors";
 import { useStore } from "../StoreContext";
 import { usePlatform } from "../PlatformContext";
+import { ANISETTE_SERVER_KEY, DEFAULT_ANISETTE_SERVER } from "../anisette";
 
 export default ({
   operationState,
@@ -32,8 +33,8 @@ export default ({
 
   const [moreDetailsOpen, setMoreDetailsOpen] = useState(false);
   const [anisetteServer] = useStore<string>(
-    "anisetteServer",
-    "ani.sidestore.io",
+    ANISETTE_SERVER_KEY,
+    DEFAULT_ANISETTE_SERVER,
   );
   const { platform } = usePlatform();
   const [suggestions, setSuggestions] = useState<string[]>([]);

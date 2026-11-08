@@ -7,6 +7,7 @@ import React, {
   useMemo,
 } from "react";
 import { load, Store } from "@tauri-apps/plugin-store";
+import { migrateRetiredAnisetteServer } from "./anisette";
 
 export const StoreContext = createContext<{
   storeValues: { [key: string]: any };
@@ -30,6 +31,14 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     const initializeStore = async () => {
       const storeInstance = await load("preferences.json");
+      // Before any value is read out, so the first sign-in already sees the
+      // migrated server. A failure here must not keep the app from rendering:
+      // nothing is shown until this function finishes.
+      try {
+        await migrateRetiredAnisetteServer(storeInstance);
+      } catch (e) {
+        console.error("Anisette server migration failed:", e);
+      }
       setStore(storeInstance);
 
       const keys = await storeInstance.keys();

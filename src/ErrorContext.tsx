@@ -10,6 +10,7 @@ import "./ErrorContext.css";
 import { toast } from "sonner";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { Trans, useTranslation } from "react-i18next";
+import { ANISETTE_SERVER_KEY, DEFAULT_ANISETTE_SERVER } from "./anisette";
 import { useStore } from "./StoreContext";
 import {
   AppError,
@@ -33,8 +34,8 @@ export const ErrorProvider: React.FC<{ children: React.ReactNode }> = ({
   const [moreDetailsOpen, setMoreDetailsOpen] = useState<boolean>(false);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [anisetteServer] = useStore<string>(
-    "anisetteServer",
-    "ani.sidestore.io",
+    ANISETTE_SERVER_KEY,
+    DEFAULT_ANISETTE_SERVER,
   );
   const { platform } = usePlatform();
 

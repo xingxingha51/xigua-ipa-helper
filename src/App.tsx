@@ -23,6 +23,12 @@ import { GlassCard } from "./components/GlassCard";
 import { useTranslation } from "react-i18next";
 import { usePlatform } from "./PlatformContext";
 import { useStore } from "./StoreContext";
+import i18n from "./i18next";
+import {
+  ANISETTE_SERVER_KEY,
+  DEFAULT_ANISETTE_SERVER,
+  takeRetiredAnisetteMigration,
+} from "./anisette";
 
 function App() {
   const { t } = useTranslation();
@@ -35,7 +41,10 @@ function App() {
   // the export feature — making it opt-in would leave most users doing the
   // manual dance they don't know exists.
   const [syncAccount, setSyncAccount] = useStore<boolean>("syncAccountOnInstall", true);
-  const [anisetteServer] = useStore<string>("anisetteServer", "ani.sidestore.io");
+  const [anisetteServer] = useStore<string>(
+    ANISETTE_SERVER_KEY,
+    DEFAULT_ANISETTE_SERVER,
+  );
   const [selectedDevice, setSelectedDevice] = useState<DeviceInfo | null>(null);
   const [openModal, setOpenModal] = useState<null | "pairing" | "exportAccount">(null);
   const [version, setVersion] = useState<string>("");
@@ -58,6 +67,21 @@ function App() {
   useEffect(() => {
     checkKeyring();
   }, [checkKeyring]);
+
+  // Kept on screen until dismissed: it explains the 2FA prompt the next
+  // sign-in will bring, and what to do if the phone was pinned to that server.
+  // `i18n.t` rather than `t`: Settings, a child, applies the saved language in
+  // its own effect, which has already run by now, while `t` is from the
+  // render before it.
+  useEffect(() => {
+    const retired = takeRetiredAnisetteMigration();
+    if (!retired) return;
+    toast.warning(i18n.t("settings.anisette_retired_title"), {
+      description: i18n.t("settings.anisette_retired_body", { server: retired }),
+      duration: Infinity,
+      closeButton: true,
+    });
+  }, []);
 
   useEffect(() => {
     const fetchVersion = async () => {

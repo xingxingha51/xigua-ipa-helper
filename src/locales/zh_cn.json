@@ -199,6 +199,8 @@
     "dont_use_keyring": "不使用钥匙串",
     "dont_use_keyring_message": "勾选此项会让 西瓜IPA安装助手 将配对文件、anisette 状态和相关证书直接储存在磁盘内，从而使系统更不安全。只有当钥匙串无法正常储存且您充分了解此项的风险时可考虑勾选此项。",
     "anisette_plain_hint": "登录 Apple ID 时需要用它来生成验证数据。一般不用改;如果登录一直失败,可以换一个再试。",
+    "anisette_retired_title": "Anisette 服务器已换回默认",
+    "anisette_retired_body": "原来选的 {{server}} 已经无法正常登录,这一版把它从列表里去掉了,已自动换成 SideStore (.io)。下次登录需要重新输入一次验证码。如果手机上的西瓜IPA助手登录也报 503,登录后用「导出账号到手机」→「发送到手机」重新发一次账号。",
     "anisette_state_not_found": "没有可重置的 Anisette 状态",
     "delete_stored_rppairing": "删除已保存的配对",
     "delete_stored_rppairing_message": "确定要删除这台设备已保存的配对文件吗？删除后需要重新配对。",

@@ -203,7 +203,9 @@
     "failed_delete_stored_rppairing": "Nem sikerült törölni a tárolt párosítófájlokat",
     "dont_use_keyring": "Ne használjon keyringet",
     "dont_use_keyring_message": "Ezáltal az Xigua IPA Helper kevésbé biztonságos lesz, mivel a párosítási fájlokat, az Anisette állapotát és a tanúsítványokat a merevlemezen tárolja. Ezt a beállítást csak akkor kapcsolja be, ha az alapértelmezett kulcstartó-tárolás nem működik, és tisztában van a kockázatokkal.",
-    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one.",
+    "anisette_retired_title": "Anisette server switched back to the default",
+    "anisette_retired_body": "{{server}} no longer signs in reliably and has been removed from the list, so you've been moved to SideStore (.io). Your next sign-in will ask for a 2FA code again. If Xigua Store on your phone also gets a 503 when signing in, sign in here and resend the account with Export account to phone → Send to device."
   },
   "dialog": {
     "confirm": "Megerősítés",

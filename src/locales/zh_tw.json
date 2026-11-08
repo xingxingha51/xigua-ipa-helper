@@ -190,7 +190,9 @@
     "warn": "警告",
     "error": "錯誤",
     "language_hint": "您可以<translation>在此</translation>協助改善翻譯。",
-    "anisette_plain_hint": "登入 Apple ID 時需要用它產生驗證資料。一般不用改;如果登入一直失敗,可以換一個再試。"
+    "anisette_plain_hint": "登入 Apple ID 時需要用它產生驗證資料。一般不用改;如果登入一直失敗,可以換一個再試。",
+    "anisette_retired_title": "Anisette 伺服器已換回預設",
+    "anisette_retired_body": "原本選的 {{server}} 已經無法正常登入,這一版把它從列表移除了,已自動換成 SideStore (.io)。下次登入需要重新輸入一次驗證碼。如果手機上的西瓜IPA助手登入也出現 503,登入後用「匯出帳號到手機」→「傳送到手機」重新傳一次帳號。"
   },
   "dialog": {
     "confirm": "確認",

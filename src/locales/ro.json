@@ -203,7 +203,9 @@
     "failed_delete_stored_rppairing": "Ștergerea asocierii salvate a eșuat",
     "dont_use_keyring": "Nu folosi keyring",
     "dont_use_keyring_message": "Aceasta face Xigua IPA Helper mai puțin sigur prin stocarea fișierelor de asociere, a stării anisette și a certificatelor pe disc. Activează această opțiune doar dacă stocarea implicită în keyring nu funcționează și înțelegi riscurile.",
-    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one."
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one.",
+    "anisette_retired_title": "Anisette server switched back to the default",
+    "anisette_retired_body": "{{server}} no longer signs in reliably and has been removed from the list, so you've been moved to SideStore (.io). Your next sign-in will ask for a 2FA code again. If Xigua Store on your phone also gets a 503 when signing in, sign in here and resend the account with Export account to phone → Send to device."
   },
   "dialog": {
     "confirm": "Confirmă",

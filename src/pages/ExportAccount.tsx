@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useStore } from "../StoreContext";
 import { useError } from "../ErrorContext";
 import { AppError } from "../errors";
+import { ANISETTE_SERVER_KEY, DEFAULT_ANISETTE_SERVER } from "../anisette";
 
 interface ExportAccountProps {
   email: string;
@@ -21,7 +22,10 @@ interface ExportAccountProps {
 export const ExportAccount = ({ email }: ExportAccountProps) => {
   const { t } = useTranslation();
   const { err } = useError();
-  const [anisetteServer] = useStore<string>("anisetteServer", "ani.sidestore.io");
+  const [anisetteServer] = useStore<string>(
+    ANISETTE_SERVER_KEY,
+    DEFAULT_ANISETTE_SERVER,
+  );
   const [password, setPassword] = useState("");
   const [needsPassword, setNeedsPassword] = useState<boolean | null>(null);
   const [busy, setBusy] = useState(false);

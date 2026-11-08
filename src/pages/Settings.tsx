@@ -13,6 +13,11 @@ import { Trans, useTranslation } from "react-i18next";
 import i18n, { sortedLanguages } from "../i18next";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { DeviceInfo } from "../Device";
+import {
+  ANISETTE_SERVERS,
+  ANISETTE_SERVER_KEY,
+  DEFAULT_ANISETTE_SERVER,
+} from "../anisette";
 
 type SettingsProps = {
   ensureSelectedDevice: () => boolean;
@@ -22,16 +27,6 @@ type SettingsProps = {
   checkKeyring: () => Promise<void>;
 };
 
-let anisetteServers = [
-  ["ani.sidestore.io", "SideStore (.io)"],
-  ["ani.stikstore.app", "StikStore"],
-  ["ani.sidestore.app", "SideStore (.app)"],
-  ["ani.sidestore.zip", "SideStore (.zip)"],
-  ["ani.846969.xyz", "SideStore (.xyz)"],
-  ["ani.neoarz.xyz", "neoarz"],
-  ["ani.xu30.top", "SteX"],
-  ["anisette.wedotstud.io", "WE. Studio"],
-];
 export const Settings = ({
   ensureSelectedDevice,
   setSelectedDevice,
@@ -41,8 +36,8 @@ export const Settings = ({
 }: SettingsProps) => {
   const { t } = useTranslation();
   const [anisetteServer, setAnisetteServer] = useStore<string>(
-    "anisetteServer",
-    "ani.sidestore.io",
+    ANISETTE_SERVER_KEY,
+    DEFAULT_ANISETTE_SERVER,
   );
 
   const [overrideKeyring, setOverrideKeyring] = useStore<boolean>(
@@ -59,7 +54,7 @@ export const Settings = ({
   const { err } = useError();
   const { confirm } = useDialog();
 
-  const anisetteOptions = anisetteServers.map(([value, label]) => ({
+  const anisetteOptions = ANISETTE_SERVERS.map(([value, label]) => ({
     value,
     label,
   }));

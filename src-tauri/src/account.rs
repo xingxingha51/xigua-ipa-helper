@@ -12,13 +12,13 @@ use keyring::Entry;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::time::Duration;
-use tauri::{AppHandle, Emitter, Listener, State, Window};
+use tauri::{AppHandle, Emitter, Listener, Manager, State, Window};
 use tauri_plugin_store::StoreExt;
 use tracing::debug;
 
 use crate::{
     error::AppError,
-    secure_storage::create_sideloading_storage,
+    secure_storage::{check_keyring_available, create_sideloading_storage},
     sideload::{SideloaderGuard, SideloaderMutex},
 };
 
@@ -128,28 +128,65 @@ pub fn invalidate_account(sideloader_state: State<'_, SideloaderMutex>) {
     *sideloader_guard = None;
 }
 
+/// Clears the anisette state from both places isideload may keep it, not just
+/// the storage in use right now.
+///
+/// Which one is in use follows the "don't use keyring" setting, and the
+/// frontend only applies that after startup, later than the retired-server
+/// migration calls this. A copy left in the other place would also be loaded
+/// again as soon as that setting flips. (Clearing only the keyring meant this
+/// did nothing for anyone on disk storage.)
 #[tauri::command]
-pub fn reset_anisette_state() -> Result<bool, AppError> {
-    let state_entry = Entry::new("xigua-ipa-helper", "anisette_state").map_err(|e| {
-        AppError::KeyringWithMessage(
-            "Failed to create keyring entry for anisette".into(),
-            e.to_string(),
-        )
-    })?;
+pub fn reset_anisette_state(app: AppHandle) -> Result<bool, AppError> {
+    // Both run before either error is reported.
+    let from_keyring = delete_anisette_state_from_keyring();
+    let from_disk = delete_anisette_state_from_disk(&app);
+    let removed = from_keyring? | from_disk?;
 
-    match state_entry.delete_credential() {
-        Ok(_) => {
+    if !removed {
+        debug!("No existing anisette state found, nothing to delete.");
+    }
+    Ok(removed)
+}
+
+fn delete_anisette_state_from_keyring() -> Result<bool, AppError> {
+    match Entry::new("xigua-ipa-helper", "anisette_state")
+        .and_then(|entry| entry.delete_credential())
+    {
+        Ok(()) => {
             debug!("Anisette state deleted from keyring.");
             Ok(true)
         }
-        Err(keyring::Error::NoEntry) => {
-            debug!("No existing anisette state found in keyring, nothing to delete.");
+        Err(keyring::Error::NoEntry) => Ok(false),
+        // Without a working keyring nothing can have been stored there.
+        Err(e) if !check_keyring_available() => {
+            debug!("Keyring unavailable, skipping it for the anisette reset: {e}");
             Ok(false)
         }
         Err(e) => Err(AppError::KeyringWithMessage(
             "Failed to delete anisette state".into(),
             e.to_string(),
         )),
+    }
+}
+
+/// The path `FsStorage` writes it to: `<app data dir>/<key>`.
+fn delete_anisette_state_from_disk(app: &AppHandle) -> Result<bool, AppError> {
+    let state_file = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| AppError::Misc(format!("Failed to get app data directory: {e:?}")))?
+        .join("anisette_state");
+
+    match std::fs::remove_file(&state_file) {
+        Ok(()) => {
+            debug!("Anisette state deleted from disk.");
+            Ok(true)
+        }
+        Err(e) if e.kind() == std::io::ErrorKind::NotFound => Ok(false),
+        Err(e) => Err(AppError::Misc(format!(
+            "Failed to delete anisette state file: {e}"
+        ))),
     }
 }
 

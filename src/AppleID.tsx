@@ -9,6 +9,7 @@ import { useStore } from "./StoreContext";
 import { useError } from "./ErrorContext";
 import { Certificate } from "./pages/Certificates";
 import { useTranslation } from "react-i18next";
+import { ANISETTE_SERVER_KEY, DEFAULT_ANISETTE_SERVER } from "./anisette";
 
 const storePromise = load("data.json");
 
@@ -31,8 +32,8 @@ export const AppleID = ({
   const [tfaCode, setTfaCode] = useState<string>("");
   const [addAccountOpen, setAddAccountOpen] = useState<boolean>(false);
   const [anisetteServer] = useStore<string>(
-    "anisetteServer",
-    "ani.sidestore.io",
+    ANISETTE_SERVER_KEY,
+    DEFAULT_ANISETTE_SERVER,
   );
   const [certs, setCerts] = useState<Certificate[] | null>(null);
   const [selectedSerials, setSelectedSerials] = useState<string[]>([]);

@@ -29,7 +29,7 @@ pub fn keyring_available() -> bool {
     !FORCE_DISABLE_KEYRING.load(Ordering::Relaxed) && check_keyring_available()
 }
 
-fn check_keyring_available() -> bool {
+pub(crate) fn check_keyring_available() -> bool {
     let entry = keyring::Entry::new("xigua-ipa-helper", "test");
     if let Ok(entry) = entry {
         return entry.set_password("test").is_ok() && entry.get_password().is_ok();
