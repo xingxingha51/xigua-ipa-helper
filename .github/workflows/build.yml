@@ -95,9 +95,33 @@ jobs:
           tagName: ${{ github.event_name == 'release' && github.event.release.tag_name || inputs.tag }}
           releaseName: 西瓜IPA安装助手 ${{ github.event_name == 'release' && github.event.release.tag_name || inputs.tag }}
           releaseBody: "Windows 与 macOS 安装包见下方 Assets。"
-          releaseDraft: false
+          # A draft until every platform's installer is on it; the publish job
+          # below releases it. A release event means someone already published.
+          releaseDraft: ${{ github.event_name != 'release' }}
           prerelease: false
           args: ${{ matrix.args }}
           # The updater is stripped from this fork, so never emit updater artifacts.
           includeUpdaterJson: false
           assetNamePattern: "XiguaIPAHelper-[platform]-[arch][ext]"
+
+  # tauri-action publishes as soon as the first platform finishes, so the site's
+  # "latest" download links pointed at a release still missing the other
+  # platform's installer for several minutes: the macOS button returned 404
+  # during v1.0.8 (and v1.0.5) until the macOS job caught up. The builds now go
+  # into a draft, and this publishes it once both succeed. If either fails the
+  # release stays a draft and "latest" stays on the previous complete one.
+  publish:
+    needs: build
+    if: github.event_name != 'release'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --draft=false --latest
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json isDraft,isPrerelease,assets \
+            --jq '"draft=\(.isDraft) prerelease=\(.isPrerelease)", (.assets[] | "  \(.name) \(.size)")'
