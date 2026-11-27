@@ -219,7 +219,8 @@ function App() {
             className="toolbar-button"
             onClick={async () => {
               try {
-                await openUrl("https://sideloadstore.pages.dev");
+                // Our own domain: *.pages.dev is often unreachable in mainland China.
+                await openUrl("https://loveipa.com/");
               } catch (error) {
                 console.error("Failed to open guide link", error);
                 toast.error(t("app.open_github_failed"));

@@ -2,7 +2,7 @@
 
 一个精简版的 iOS 侧载工具,专门用来把 **SideStore** 装进 iPhone / iPad。
 
-配套图文教程:<https://sideloadstore.pages.dev>
+配套图文教程:<https://loveipa.com/>
 
 ## 这个版本做了什么裁剪
 
