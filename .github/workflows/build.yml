@@ -75,6 +75,14 @@ jobs:
       - name: Install frontend dependencies
         run: bun install
 
+      # src-tauri/target comes back from the cache with whatever the last build
+      # bundled into it. createUpdaterArtifacts is off, so nothing replaces an
+      # old .app.tar.gz there, and tauri-action uploads it as this build's:
+      # v1.0.7 went out with 1.0.6's that way. Clear old bundles first.
+      - name: Remove bundles restored from the cache
+        shell: bash
+        run: rm -rf src-tauri/target/release/bundle src-tauri/target/*/release/bundle
+
       # Installers are attached to a Release rather than uploaded as build
       # artifacts: artifacts share a small pooled storage quota (and uploads
       # hard-fail once it is full), while a Release also gives the website a
