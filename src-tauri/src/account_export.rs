@@ -92,6 +92,14 @@ pub struct ExportedAccount {
     /// when this matches its own and provisions again otherwise.
     #[serde(rename = "anisetteClientInfo")]
     anisette_client_info: String,
+    /// How the device identifiers derived from `local_user` were spelled when
+    /// the adi.pb was provisioned. isideload writes `X-Mme-Device-Id` and
+    /// `X-Apple-I-MD-LU` in lower case, the store app in upper case, and Apple
+    /// compares them case-sensitively: sent the other way, sign-in fails with
+    /// -22410 at its first step. 1.0.6 left this out; the store infers lower
+    /// case from `anisetteClientInfo` being present.
+    #[serde(rename = "anisetteIdentifierCase")]
+    anisette_identifier_case: &'static str,
 }
 
 /// Builds the account payload from a signed-in developer session.
@@ -168,6 +176,7 @@ pub async fn build_exported_account(
         // The store keeps server URLs with a scheme; the setting may omit it.
         anisette_server: crate::anisette_identity::normalize_server(anisette_server),
         anisette_client_info: anisette_client_info.to_string(),
+        anisette_identifier_case: "lower",
     })
 }
 
