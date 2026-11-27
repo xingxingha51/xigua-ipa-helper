@@ -193,9 +193,10 @@
     "warn": "Warning",
     "error": "Fel",
     "language_hint": "Du kan hjälpa med översättningar <translation>här</translation>.",
-    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one.",
-    "anisette_retired_title": "Anisette server switched back to the default",
-    "anisette_retired_body": "{{server}} no longer signs in reliably and has been removed from the list, so you've been moved to SideStore (.io). Your next sign-in will ask for a 2FA code again. If Xigua Store on your phone also gets a 503 when signing in, sign in here and resend the account with Export account to phone → Send to device."
+    "anisette_plain_hint": "Used to generate the data required to sign in to your Apple ID. Leave as-is; if sign-in keeps failing, try a different one. After switching, your next sign-in will ask for a 2FA code again.",
+    "anisette_updated_title": "Sign-in updated",
+    "anisette_server_switched": "{{server}} no longer works, so you've been moved to SideStore (New). ",
+    "anisette_updated_body": "Since Nov 20, Apple only accepts a newer device identity at sign-in, and this version uses one. Your next sign-in will ask for a 2FA code again. Please also update Xigua Store on your phone to the latest version, then resend your account with Export account to phone → Send to device."
   },
   "dialog": {
     "confirm": "Bekräfta",

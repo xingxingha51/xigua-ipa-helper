@@ -27,6 +27,7 @@ import i18n from "./i18next";
 import {
   ANISETTE_SERVER_KEY,
   DEFAULT_ANISETTE_SERVER,
+  prepareAnisette,
   takeRetiredAnisetteMigration,
 } from "./anisette";
 
@@ -69,17 +70,26 @@ function App() {
   }, [checkKeyring]);
 
   // Kept on screen until dismissed: it explains the 2FA prompt the next
-  // sign-in will bring, and what to do if the phone was pinned to that server.
+  // sign-in will bring, and that the phone needs the account sent again.
+  // Shown when this launch moved the user off a retired server, or cleared
+  // anisette state provisioned for another server or identity — which, on the
+  // first run of 1.0.6, is everyone who has signed in before.
   // `i18n.t` rather than `t`: Settings, a child, applies the saved language in
   // its own effect, which has already run by now, while `t` is from the
   // render before it.
   useEffect(() => {
     const retired = takeRetiredAnisetteMigration();
-    if (!retired) return;
-    toast.warning(i18n.t("settings.anisette_retired_title"), {
-      description: i18n.t("settings.anisette_retired_body", { server: retired }),
-      duration: Infinity,
-      closeButton: true,
+    // The setting as of this first render, already migrated by StoreProvider.
+    prepareAnisette(anisetteServer).then((cleared) => {
+      if (!retired && !cleared) return;
+      const switched = retired
+        ? i18n.t("settings.anisette_server_switched", { server: retired })
+        : "";
+      toast.warning(i18n.t("settings.anisette_updated_title"), {
+        description: switched + i18n.t("settings.anisette_updated_body"),
+        duration: Infinity,
+        closeButton: true,
+      });
     });
   }, []);
 

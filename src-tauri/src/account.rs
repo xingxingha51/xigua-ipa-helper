@@ -17,6 +17,7 @@ use tauri_plugin_store::StoreExt;
 use tracing::debug;
 
 use crate::{
+    anisette_identity::{self, WithIdentity},
     error::AppError,
     secure_storage::{check_keyring_available, create_sideloading_storage},
     sideload::{SideloaderGuard, SideloaderMutex},
@@ -219,23 +220,33 @@ pub async fn login_apple_account(
         result.ok().map(|code| code.trim_matches('"').to_string())
     };
 
-    let anisette_url = if !anisette_server.starts_with("http") {
-        format!("https://{}", anisette_server)
-    } else {
-        anisette_server
-    };
-
     let account = AppleAccount::builder(&email.to_lowercase())
-        .anisette_provider(
-            RemoteV3AnisetteProvider::default()?
-                .set_serial_number("0".to_string())
-                .set_storage(create_sideloading_storage(app)?)
-                .set_url(&anisette_url),
-        )
+        .anisette_provider(anisette_provider(app, &anisette_server).await?)
         .login(password, tfa_closure)
         .await?;
 
     Ok(account)
+}
+
+/// The anisette provider for a sign-in: the chosen server, presenting our
+/// identity instead of the server's own (see `anisette_identity`), with the
+/// stored state cleared first if it was provisioned for another server or under
+/// another identity.
+async fn anisette_provider(
+    app: &AppHandle,
+    anisette_server: &str,
+) -> Result<WithIdentity<RemoteV3AnisetteProvider>, AppError> {
+    let url = anisette_identity::normalize_server(anisette_server);
+    let identity = anisette_identity::current().await;
+    anisette_identity::sync_state(app, &url, &identity).await?;
+
+    Ok(WithIdentity::new(
+        RemoteV3AnisetteProvider::default()?
+            .set_serial_number("0".to_string())
+            .set_storage(create_sideloading_storage(app)?)
+            .set_url(&url),
+        identity,
+    ))
 }
 
 async fn login(
@@ -269,19 +280,8 @@ async fn login(
         }
     };
 
-    let anisette_url = if !anisette_server.starts_with("http") {
-        format!("https://{}", anisette_server)
-    } else {
-        anisette_server
-    };
-
     let mut account = AppleAccount::builder(&email.to_lowercase())
-        .anisette_provider(
-            RemoteV3AnisetteProvider::default()?
-                .set_serial_number("0".to_string())
-                .set_storage(create_sideloading_storage(app)?)
-                .set_url(&anisette_url),
-        )
+        .anisette_provider(anisette_provider(app, &anisette_server).await?)
         .login(password, tfa_closure)
         .await?;
 

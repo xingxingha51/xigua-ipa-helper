@@ -87,6 +87,11 @@ pub struct ExportedAccount {
     /// picks the first reachable entry from a 10-server public list.
     #[serde(rename = "anisetteServer")]
     anisette_server: String,
+    /// The `X-Mme-Client-Info` the adi.pb was provisioned under. Apple refuses
+    /// adi.pb used with any other identity (-22410), so the store reuses it only
+    /// when this matches its own and provisions again otherwise.
+    #[serde(rename = "anisetteClientInfo")]
+    anisette_client_info: String,
 }
 
 /// Builds the account payload from a signed-in developer session.
@@ -99,6 +104,7 @@ pub async fn build_exported_account(
     dev_session: &mut DeveloperSession,
     storage: &dyn SideloadingStorage,
     anisette_server: &str,
+    anisette_client_info: &str,
 ) -> Result<ExportedAccount, AppError> {
     let teams = dev_session
         .list_teams()
@@ -159,18 +165,10 @@ pub async fn build_exported_account(
         certpass: machine_id,
         local_user: BASE64.encode(state.keychain_identifier),
         adi_pb: BASE64.encode(adi_pb),
-        anisette_server: normalize_anisette_url(anisette_server),
+        // The store keeps server URLs with a scheme; the setting may omit it.
+        anisette_server: crate::anisette_identity::normalize_server(anisette_server),
+        anisette_client_info: anisette_client_info.to_string(),
     })
-}
-
-/// The store stores server URLs with a scheme; the helper's setting may omit it.
-fn normalize_anisette_url(raw: &str) -> String {
-    let trimmed = raw.trim().trim_end_matches('/');
-    if trimmed.starts_with("http://") || trimmed.starts_with("https://") {
-        trimmed.to_string()
-    } else {
-        format!("https://{trimmed}")
-    }
 }
 
 impl ExportedAccount {
@@ -234,12 +232,17 @@ pub(crate) async fn prepare_account_payload(
         .await
         .map_err(|e| AppError::Misc(format!("Failed to create developer session: {e:?}")))?;
 
+    // The sign-in above provisioned (or kept) the stored state under this
+    // identity; it is settled once per run, so this is the same value.
+    let identity = crate::anisette_identity::current().await;
+
     let account = build_exported_account(
         email,
         &password,
         &mut dev_session,
         storage.as_ref(),
         anisette_server,
+        &identity.client_info,
     )
     .await?;
 

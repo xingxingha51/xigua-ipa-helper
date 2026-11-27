@@ -1,6 +1,7 @@
 #[macro_use]
 mod account;
 mod account_export;
+mod anisette_identity;
 #[macro_use]
 mod device;
 #[macro_use]
@@ -19,6 +20,7 @@ use crate::{
         logged_in_as, login_new, login_stored, reset_anisette_state, revoke_certificate,
     },
     account_export::{export_account_file, has_stored_password, send_account_to_device},
+    anisette_identity::prepare_anisette,
     device::{
         DeviceInfoMutex, PairingCancelToken, cancel_pairing, list_devices, set_selected_device,
     },
@@ -121,6 +123,7 @@ pub fn run() {
             installed_pairing_apps,
             place_pairing_cmd,
             reset_anisette_state,
+            prepare_anisette,
             export_pairing_cmd,
             export_account_file,
             send_account_to_device,
